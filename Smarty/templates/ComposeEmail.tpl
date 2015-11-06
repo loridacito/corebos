@@ -18,7 +18,7 @@
 <script language="javascript" type="text/javascript" src="include/scriptaculous/prototype.js"></script>
 <script src="include/scriptaculous/scriptaculous.js" type="text/javascript"></script>
 <script src="include/js/general.js" type="text/javascript"></script>
-<script language="JavaScript" type="text/javascript" src="include/js/{php} echo $_SESSION['authenticated_user_language'];{/php}.lang.js?{php} echo $_SESSION['vtiger_version'];{/php}"></script>
+<script language="JavaScript" type="text/javascript" src="include/js/{$LANGUAGE}.lang.js?{$VERSION}"></script>
 <script type="text/javascript" src="include/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="modules/Products/multifile.js"></script>
 </head>

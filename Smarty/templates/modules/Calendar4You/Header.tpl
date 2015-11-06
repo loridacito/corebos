@@ -49,7 +49,7 @@
 	<!-- vtlib customization: Javascript hook -->
 	<script language="JavaScript" type="text/javascript" src="include/js/vtlib.js?v={$VERSION}"></script>
 	<!-- END -->
-	<script language="JavaScript" type="text/javascript" id="_current_language_" src="include/js/{php} echo $_SESSION['authenticated_user_language'];{/php}.lang.js?{php} echo $_SESSION['vtiger_version'];{/php}"></script>
+	<script language="JavaScript" type="text/javascript" id="_current_language_" src="include/js/{$LANGUAGE}.lang.js?{$VERSION}"></script>
 	<script language="JavaScript" type="text/javascript" src="include/js/QuickCreate.js"></script>
 	<script language="javascript" type="text/javascript" src="include/scriptaculous/prototype.js"></script>
 	<script language="JavaScript" type="text/javascript" src="include/js/menu.js?v={$VERSION}"></script>
@@ -534,7 +534,7 @@ function openwin(){ldelim}
 <script type="text/javascript">
 {literal}
 function vtiger_feedback() {
-	window.open("http://vtiger.com/products/crm/feedback.php?uid={/literal}{php}global $application_unique_key; echo $application_unique_key;{/php}&version={php}global $vtiger_current_version; echo $vtiger_current_version;{/php}&email={$CURRENT_USER_MAIL}{literal}","feedbackwin","height=300,width=515,top=200,left=300")
+	window.open("http://vtiger.com/products/crm/feedback.php?uid={/literal}{$application_unique_key}&version={$VERSION}&email={$CURRENT_USER_MAIL}{literal}","feedbackwin","height=300,width=515,top=200,left=300")
 }
 {/literal}
 </script>

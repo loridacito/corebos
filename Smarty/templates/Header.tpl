@@ -54,7 +54,7 @@ var gVTUserID = '{$CURRENT_USER_ID}';
 	<!-- vtlib customization: Javascript hook -->
 	<script language="JavaScript" type="text/javascript" src="include/js/vtlib.js?v={$VERSION}"></script>
 	<!-- END -->
-	<script language="JavaScript" type="text/javascript" id="_current_language_" src="include/js/{php} echo $_SESSION['authenticated_user_language'];{/php}.lang.js?{php} echo $_SESSION['vtiger_version'];{/php}"></script>
+	<script language="JavaScript" type="text/javascript" id="_current_language_" src="include/js/{$LANGUAGE}.lang.js?{$VERSION}"></script>
 	<script language="JavaScript" type="text/javascript" src="include/js/QuickCreate.js"></script>
 	<script language="javascript" type="text/javascript" src="include/scriptaculous/prototype.js"></script>
 	<script language="JavaScript" type="text/javascript" src="include/js/menu.js?v={$VERSION}"></script>
@@ -203,7 +203,7 @@ var gVTUserID = '{$CURRENT_USER_ID}';
 						<input class="small" type='radio' name='exportCalendar' value = 'iCal' onclick="$('ics_filename').removeAttribute('disabled');" checked /> iCal Format
 					</td>
 					<td align="left">
-						<input class="small" type='text' name='ics_filename' id='ics_filename' size='25' value='{php}global $coreBOS_app_name; echo $coreBOS_app_name;{/php}.calendar'/>
+						<input class="small" type='text' name='ics_filename' id='ics_filename' size='25' value='{$coreBOS_app_name}.calendar'/>
 					</td>
 				</tr>
 				</table>
@@ -253,7 +253,7 @@ var gVTUserID = '{$CURRENT_USER_ID}';
 	</form>
 	</div>
 {/if}
-{php}cbEventHandler::do_action('corebos.header.premenu');{/php}
+{* {php}cbEventHandler::do_action('corebos.header.premenu');{/php}*}
 <!-- header - master tabs -->
 <TABLE border=0 cellspacing=0 cellpadding=0 width=100% class="hdrTabBg">
 <tr>
