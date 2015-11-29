@@ -212,7 +212,7 @@ function getListOfRecords(obj, sModule, iId,sParentTab)
 
 <!-- The following table is used to display the buttons -->
 <!-- Button displayed - finished-->
-{include_php file="include/DetailViewBlockStatus.php"}
+{assign var="BLOCKINITIALSTATUS" value=$smarty.session.BLOCKINITIALSTATUS}
 
 <!-- Entity information(blocks) display - start -->
 {foreach key=header item=detail from=$BLOCKS name=BLOCKS}
