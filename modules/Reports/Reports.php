@@ -462,6 +462,8 @@ class Reports extends CRMEntity{
 				$report_details ['description'] = $report["description"];
 				$report_details ['reportname'] = $report["reportname"];
 				$report_details ['sharingtype'] = $report["sharingtype"];
+				$check_array = Button_Check($report["primarymodule"]);
+				$report_details ['exportable'] = $check_array["Export"];
 				if($is_admin==true || in_array($report["owner"],$subordinate_users) || $report["owner"]==$current_user->id)
 					$report_details ['editable'] = 'true';
 				else
