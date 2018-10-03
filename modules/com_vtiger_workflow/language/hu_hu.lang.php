@@ -133,7 +133,6 @@ $mod_strings = array(
 	'LBL_SELECTED_DATES' => 'Selected Dates',
 	'LBL_EXCEEDING_MAXIMUM_LIMIT' => 'Maximum limit exceeded',
 	'LBL_NEXT_TRIGGER_TIME' => 'Next trigger time on',
-	'LBL_MESSAGE' => 'Message',
 	'UpdateInventoryProducts On Every Save' => 'Update Product Inventory',
 	'Send Email to user when Notifyowner is True' => 'Send Email to user when Notifyowner is True',
 	'Send Email to user when Portal User is True' => 'Send Email to user when Portal User is True',
@@ -146,6 +145,7 @@ $mod_strings = array(
 	'Workflow for Calendar Todos when Send Notification is True' => 'Workflow for Calendar Todos when Send Notification is True',
 	'Calculate or Update forecast amount' => 'Calculate or Update forecast amount',
 	'LBL_METHOD_NAME' => 'Method Name',
-	'NO_METHOD_AVAILABLE' => 'No method is available for this module.'
+	'NO_METHOD_AVAILABLE' => 'No method is available for this module.',
+	'launchrelwf' => 'Launch workflows on related updates',
 );
 ?>

@@ -26,6 +26,7 @@ The accepted format is:
 		<relatedmodule>
 			<module></module>
 			<relation>m:m</relation> {optional}
+			<condition></condition>	{optional}
 		</relatedmodule>
 		...
 		<relatedmodule>
@@ -37,15 +38,15 @@ The accepted format is:
 </map>
 *************************************************************************************************/
 
-require_once('modules/cbMap/cbMap.php');
-require_once('modules/cbMap/processmap/processMap.php');
+require_once 'modules/cbMap/cbMap.php';
+require_once 'modules/cbMap/processmap/processMap.php';
 
 class DuplicateRelations extends processcbMap {
 	private $mapping = array();
 	private $modulename = '';
 	private $moduleid = 0;
 
-	function processMap($arguments) {
+	public function processMap($arguments) {
 		$this->convertMap2Array();
 		return $this;
 	}
@@ -54,21 +55,22 @@ class DuplicateRelations extends processcbMap {
 		return $this->mapping;
 	}
 
-	public function getRelatedModules(){
-		if(isset($this->mapping["relatedmodules"]))
+	public function getRelatedModules() {
+		if (isset($this->mapping["relatedmodules"])) {
 			return $this->mapping["relatedmodules"];
+		}
 		return array();
 	}
 
-	public function DuplicateDirectRelations(){
+	public function DuplicateDirectRelations() {
 		return filter_var($this->mapping['DuplicateDirectRelations'], FILTER_VALIDATE_BOOLEAN);
 	}
 
-	public function getOriginModuleName(){
+	public function getOriginModuleName() {
 		return $this->mapping['originname'];
 	}
 
-	public function getOriginModuleId(){
+	public function getOriginModuleId() {
 		return $this->mapping['originid'];
 	}
 
@@ -80,13 +82,15 @@ class DuplicateRelations extends processcbMap {
 		$mapping['DuplicateDirectRelations'] = (String)$xml->DuplicateDirectRelations;
 
 		$relativemodules = array();
-		foreach ($xml->relatedmodules->relatedmodule as $r)
-			$relativemodules[ (string)$r->module ] = (string)$r->relation;
+		foreach ($xml->relatedmodules->relatedmodule as $r) {
+			$relativemodules[ (string)$r->module ] = array(
+				'relation' => (string)$r->relation,
+				'condition' => (string)$r->condition,
+			);
+		}
 		$mapping["relatedmodules"] = $relativemodules;
-		
+
 		$this->mapping = $mapping;
 	}
-
 }
-
 ?>

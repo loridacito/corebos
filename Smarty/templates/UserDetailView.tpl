@@ -68,7 +68,12 @@
 											<b>{$APP.LBL_MY_PREFERENCES}</b>
 											</span>
 											{/if}
-											<span id="vtbusy_info" style="display:none;" valign="bottom"><img src="{'vtbusy.gif'|@vtiger_imageurl:$THEME}" border="0"></span>
+											<span id="vtbusy_info" style="display:none;" valign="bottom">
+											<div role="status" class="slds-spinner slds-spinner_brand slds-spinner_x-small" style="position:relative; top:6px;">
+												<div class="slds-spinner__dot-a"></div>
+												<div class="slds-spinner__dot-b"></div>
+											</div>
+											</span>
 										</td>
 
 									</tr>
@@ -87,11 +92,9 @@
 									<input type="button" onclick="gotourl('index.php?module=cbAuditTrail&action=ListView&page=1&user_list={$ID}');" value="{$MOD.LBL_VIEW_AUDIT_TRAIL}" class="crmButton small save"></input>
 									<input type="button" onclick="VtigerJS_DialogBox.block();window.document.location.href = 'index.php?module=Users&action=UsersAjax&file=CalculatePrivilegeFiles&record={$ID}';" value="{$MOD.LBL_RECALCULATE_BUTTON}" class="crmButton small cancel"></input>
 									{/if}
-									{if $IS_ADMIN eq 'true'}
-										{$DUPLICATE_BUTTON}
-									{/if}
-									{$EDIT_BUTTON}
-									{if $CATEGORY eq 'Settings' && $ID neq 1 && $ID neq $CURRENT_USERID}
+									{if $IS_ADMIN eq 'true' && isset($DUPLICATE_BUTTON)}{$DUPLICATE_BUTTON}{/if}
+									{if isset($EDIT_BUTTON)}{$EDIT_BUTTON}{/if}
+									{if $CATEGORY eq 'Settings' && $ID neq 1 && $ID neq $CURRENT_USERID && !$cbodUserBlocked}
 									<input type="button" onclick="deleteUser({$ID});" class="crmButton small cancel" value="{$UMOD.LBL_DELETE}"></input>
 									{/if}
 								</td>
@@ -134,7 +137,14 @@
 
 										   {if $label ne ''}
 										   <td class="dvtCellLabel" align=right width=25%>{$label}</td>
+											{if $cbodUserBlocked}
+											{if $keyfldname eq 'user_password'}
+												{assign var=keyval value=''}
+											{/if}
+											{include file="DetailViewFields.tpl"}
+											{else}
 											{include file="DetailViewUI.tpl"}
+											{/if}
 										   {else}
 										   <td class="dvtCellLabel" align=right>&nbsp;</td>
 										   <td class="dvtCellInfo" align=left >&nbsp;</td>

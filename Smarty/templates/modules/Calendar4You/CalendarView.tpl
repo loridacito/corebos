@@ -26,7 +26,7 @@
 </div>
 <!-- Dropdown for Add Event on Button hover -->
 <div id='addButtonDropDown' style='width:160px' onmouseover='fnShowButton()' onmouseout='fnRemoveButton()'>
-<table width="100%" cellpadding="0" cellspacing="0" border="0">{$ADD_BUTTONEVENTLIST}</table>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">{$ADD_ADDEVENTLIST}</table>
 </div>
 <script>
 var Events_color = new Array();
@@ -99,6 +99,12 @@ Calendar_Event_Types = {literal}{
                  {/foreach}
                  {literal}
 
+                 var block_status = {};
+                 block_status.event_type = jQuery('#event_type_wrapper').css('display');
+                 block_status.module_type = jQuery('#module_type_wrapper').css('display');
+                 block_status.et_status = jQuery('#et_status_wrapper').css('display');
+                 block_status.task_priority = jQuery('#task_priority_list').css('display');
+
                  var view_val = jQuery('#calendar_div').fullCalendar('getView');
                  document.getElementById("status").style.display="inline";
                  jQuery.ajax({
@@ -114,6 +120,7 @@ Calendar_Event_Types = {literal}{
                                 view: view_val.name,
                                 event_status: event_status,
                                 task_priority: task_priority,
+                                block_status: JSON.stringify(block_status),
                                 save: loggeduser,
                                 start: Math.round(new Date(start).getTime() / 1000),
                                 end: Math.round(new Date(end).getTime() / 1000)
@@ -177,6 +184,7 @@ jQuery(document).ready(function(){
 		defaultView: '{/literal}{$DEFAULTVIEW}{literal}',
 		allDayText: {/literal}'{$MOD.LBL_ALL_DAY}'{literal},
 
+		weekNumbers: {/literal}{$Calendar_Show_WeekNumber}{literal},
 		weekends: {/literal}{$CALENDAR_SETTINGS.show_weekends}{literal},
 		minTime:  "{/literal}{$CALENDAR_SETTINGS.start_hour}{literal}",
 		maxTime:  "{/literal}{$CALENDAR_SETTINGS.end_hour}{literal}",
@@ -192,13 +200,13 @@ jQuery(document).ready(function(){
 
 {/literal}
 
-        {if $IS_24 eq "true"}
-            timeFormat: 'H:mm',
-            slotLabelFormat: 'H(:mm)',
-        {else}
-            timeFormat: 'h:mma',
-            slotLabelFormat: 'h(:mm)a',
-        {/if}
+		{if $IS_24 eq "true"}
+			timeFormat: 'H:mm',
+			slotLabelFormat: 'H(:mm)',
+		{else}
+			timeFormat: 'h:mma',
+			slotLabelFormat: 'h(:mm)a',
+		{/if}
 
         monthNames: ['{$CMOD.cal_month_long.1|escape}', '{$CMOD.cal_month_long.2|escape}', '{$CMOD.cal_month_long.3|escape}', '{$CMOD.cal_month_long.4|escape}', '{$CMOD.cal_month_long.5|escape}', '{$CMOD.cal_month_long.6|escape}', '{$CMOD.cal_month_long.7|escape}', '{$CMOD.cal_month_long.8|escape}', '{$CMOD.cal_month_long.9|escape}', '{$CMOD.cal_month_long.10|escape}', '{$CMOD.cal_month_long.11|escape}', '{$CMOD.cal_month_long.12|escape}'],
 
@@ -257,6 +265,7 @@ jQuery(document).ready(function(){
 			eventlist = new Array({$EVENTLIST});
 			var timemodulearr = new Array({$TIMEMODULEARRAY});
 			var timemoduledet = {$TIMEMODULEDETAILS};
+			var calendar_other_default_duration = {$Calendar_Other_Default_Duration}; // hours
 {literal}
 			for(var i=0;i<(eventlist.length);i++){
 				document.getElementById("add"+eventlist[i].toLowerCase()).href="javascript:gITSshow('addITSEvent','"+eventlist[i]+"','"+startdate+"','"+enddate+"','"+starthr+"','"+startmin+"','"+startfmt+"','"+endhr+"','"+endmin+"','"+endfmt+"','"+viewOption+"','"+subtab+"');fnRemoveITSEvent();";
@@ -275,13 +284,19 @@ jQuery(document).ready(function(){
 					var nt = parseInt(starthr) + 12;
 					var tmetime = nt + ":" + endmin;
 				}
+				if (starthr == endhr && startmin == endmin) {
+					endhr = String(parseInt(endhr) + calendar_other_default_duration);
+					if (endhr.length == 1) {
+						endhr = '0'+endhr;
+					}
+				}
 				var addmoduleurl = "javascript:gotourl('index.php?action=EditView&return_module=Calendar4You&return_action=index&module="+tmmod;
 				addmoduleurl += timemoduledet[tmmod].start ? "&"+timemoduledet[tmmod].start+'='+startdate : '';
 				addmoduleurl += timemoduledet[tmmod].end ? "&"+timemoduledet[tmmod].end+'='+enddate : '';
 				addmoduleurl += timemoduledet[tmmod].stime ? "&"+timemoduledet[tmmod].stime+'='+tmstime : '';
 				addmoduleurl += timemoduledet[tmmod].etime ? "&"+timemoduledet[tmmod].etime+'='+tmetime : '';
 				addmoduleurl += "');";
-				document.getElementById("add"+tmmod.toLowerCase()).href=addmoduleurl;
+				document.getElementById("addmod"+tmmod.toLowerCase()).href=addmoduleurl;
 			}
 
             xOffset = 5;
@@ -428,7 +443,6 @@ function changeCalendarEvents(el){
 function hideITSEventInfo(){
 	jQuery('#event_info').css('display', 'none');
 	jQuery('#event_info_content').html('');
-
 }
 {/literal}
 </script>
@@ -445,6 +459,8 @@ function hideITSEventInfo(){
                         <tbody>
                             <tr>
                                   <td width="200px" valign="top" class="noprint">
+                                  {foreach item=PANEL_NAME from=$Calendar_Panel_Order}
+                                    {if $PANEL_NAME eq 'ActivityType'}
                                     <table class="dvtContentSpace" border="0" cellpadding="0" cellspacing="0" width="100%">
                                         <tbody>
                                             <tr>
@@ -452,7 +468,7 @@ function hideITSEventInfo(){
                                             </tr>
                                             <tr>
                                                 <td style="padding:5px" class="ui-widget-content">
-                                                  <div id="event_type_wrapper">
+                                                  <div id="event_type_wrapper" style="display:{$upEVENTBLOCK_DISPLAY}">
                                                     {foreach name=act_types2 item=typedata key=typeid from=$ACTIVITYTYPES}
                                                     <table width="98%" id="event_type_{$typeid}" style="font-weight:bold;font-size:12px;{if $USER_VIEW_TYPE neq "all"}color:{$typedata.textColor};background-color:{$typedata.color};border: 2px solid {$typedata.title_color}{else}background-color:#ffffff;border: 2px solid #dedede{/if};margin:0px 3px 3px 3px;padding:1px;border-top-left-radius: 3px;border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px;" onMouseOver="showEventIcon('event_type_{$typeid}_icon')" onMouseOut="hideEventIcon('event_type_{$typeid}_icon')"><tr><td><input type="checkbox" id="calendar_event_{$typeid}" name="calendar_event_{$typeid}" onClick="changeCalendarEvents(this)" value="{$typeid}" {if $typedata.checked eq 'true'}checked="checked"{/if}>{$typedata.label}<td><td align="right"><a id="event_type_{$typeid}_icon" href="javascript:;" style="display:none" onClick="loadITSEventSettings(this,'type','{$typeid}')"><img src="themes/images/activate.gif" border="0"></a></td></tr></table>
                                                     {/foreach}
@@ -461,8 +477,8 @@ function hideITSEventInfo(){
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <br>
-                                    {if $Calendar_Modules_Panel_Visible}
+                                    {/if}
+                                    {if $Calendar_Modules_Panel_Visible && $PANEL_NAME eq 'ModulePanel'}
                                     <table class="dvtContentSpace" border="0" cellpadding="0" cellspacing="0" width="100%">
                                         <tbody>
                                             <tr>
@@ -470,7 +486,7 @@ function hideITSEventInfo(){
                                             </tr>
                                             <tr>
                                                 <td style="padding:5px" class="ui-widget-content">
-                                                  <div id="module_type_wrapper">
+                                                  <div id="module_type_wrapper" style="display:{$upMODULEBLOCK_DISPLAY}">
                                                     {foreach name=act_types2 item=typedata key=typeid from=$MODULETYPES}
                                                     <table width="98%" id="event_type_{$typeid}" style="font-weight:bold;font-size:12px;{if $USER_VIEW_TYPE neq "all"}color:{$typedata.textColor};background-color:{$typedata.color};border: 2px solid {$typedata.title_color}{else}background-color:#ffffff;border: 2px solid #dedede{/if};margin:0px 3px 3px 3px;padding:1px;border-top-left-radius: 3px;border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px;"><tr><td><input type="checkbox" id="calendar_event_{$typeid}" name="calendar_event_{$typeid}" onClick="changeCalendarEvents(this)" value="{$typeid}" {if $typedata.checked eq 'T'}checked="checked"{/if}>{$typedata.label}<td><td align="right"><a id="event_type_{$typeid}_icon" href="javascript:;" style="display:none" onClick="loadITSEventSettings(this,'type','{$typeid}')"><img src="themes/images/activate.gif" border="0"></a></td></tr></table>
                                                     {/foreach}
@@ -479,8 +495,8 @@ function hideITSEventInfo(){
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <br>
                                     {/if}
+                                    {if $PANEL_NAME eq 'AssignedUser'}
                                     <table class="dvtContentSpace" border="0" cellpadding="0" cellspacing="0" width="100%">
                                         <tbody>
                                             <tr>
@@ -503,8 +519,8 @@ function hideITSEventInfo(){
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <br>
-                                    <br>
+                                    {/if}
+                                    {if $PANEL_NAME eq 'ActivityStatus'}
                                     <table class="dvtContentSpace" border="0" cellpadding="0" cellspacing="0" width="100%">
                                         <tbody>
                                             <tr>
@@ -512,7 +528,7 @@ function hideITSEventInfo(){
                                             </tr>
                                             <tr>
                                                 <td style="padding:5px" class="ui-widget-content">
-                                                	<div id="et_status_wrapper">
+                                                	<div id="et_status_wrapper" style="display:{$upESTATUSBLOCK_DISPLAY}">
                                                     <div id="event_status_list" style="font-size:12px;">
                                                     {foreach name=calendar_event_status item=estatusdata key=estatus_key from=$EVENT_STATUS}
                                                     <table width="98%" style="font-weight:bold;margin:3px;padding:1px;"><tr><td><input type="checkbox" id="calendar_event_status_{$estatusdata.id}" name="calendar_event_status_{$estatusdata.id}" onClick="changeCalendarEvents(this)" value="{$estatusdata.id}" {if $estatusdata.checked eq 'true'}checked="checked"{/if}>{$estatusdata.label}</td></tr></table>
@@ -523,7 +539,8 @@ function hideITSEventInfo(){
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <br>
+                                    {/if}
+                                    {if $PANEL_NAME eq 'ActivityPriority'}
                                     <table class="dvtContentSpace" border="0" cellpadding="0" cellspacing="0" width="100%">
                                         <tbody>
                                             <tr>
@@ -531,7 +548,7 @@ function hideITSEventInfo(){
                                             </tr>
                                             <tr>
                                                 <td style="padding:5px" class="ui-widget-content">
-                                                 <div id="task_priority_list" style="font-size:12px;">
+                                                 <div id="task_priority_list" style="font-size:12px;display:{$upTPRIORITYBLOCK_DISPLAY};">
                                                     {foreach name=calendar_task_priority item=tprioritydata key=tpriority_key from=$TASK_PRIORITY}
                                                     <table width="98%" style="font-weight:bold;font-size:12px;margin:3px;padding:1px;"><tr><td><input type="checkbox" id="calendar_task_priority_{$tprioritydata.id}" name="calendar_task_priority_{$tprioritydata.id}" onClick="changeCalendarEvents(this)" value="{$tprioritydata.id}" {if $tprioritydata.checked eq 'true'}checked="checked"{/if}>{$tprioritydata.label}</td></tr></table>
                                                     {/foreach}
@@ -540,6 +557,9 @@ function hideITSEventInfo(){
                                             </tr>
                                         </tbody>
                                     </table>
+                                    {/if}
+                                    <br/>
+                                    {/foreach}
                                   </td>
                                   <td align="left" valign="top"><!-- content cache -->
                                     <div style="padding:0px 10px 0px 10px">
@@ -571,7 +591,7 @@ function hideITSEventInfo(){
 </form>
 <script>
 function changeCalendarUserView(type) {ldelim}
-	if(type == "all") {ldelim}
+	if (type == 'all') {ldelim}
 		{foreach name=act_types2 item=typedata key=typeid from=$ACTIVITYTYPES}
 			jQuery('#event_type_{$typeid}').css('color', '#000000');
 			jQuery('#event_type_{$typeid}').css('background-color', '#ffffff');

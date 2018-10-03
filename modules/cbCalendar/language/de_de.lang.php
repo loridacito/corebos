@@ -8,7 +8,7 @@
  * All Rights Reserved.
  ************************************************************************************/
 
-$mod_strings = Array(
+$mod_strings = array(
 	'cbCalendar' => 'Kalender',
 	'SINGLE_cbCalendar' => 'Aufgabe',
 	'cbCalendar ID' => 'Aufgaben-ID',
@@ -20,8 +20,9 @@ $mod_strings = Array(
 	'Subject' => 'Betreff',
 	'Start Date Time' => 'Startdatum und -zeit',
 	'End Date Time' => 'Enddatum und -zeit',
-	'Time Start' => 'Startzeit',
-	'End Time' => 'Endzeit',
+	'Time Start' => 'Startzeit (System Time)',
+	'End Time' => 'Endzeit (System Time)',
+	'End Date' => 'Enddatum',
 	'Due Date' => 'Fälligkeitsdatum',
 	'Related To' => 'Bezogen auf',
 	'Related with' => 'Bezogene Aufgabe',
@@ -61,6 +62,7 @@ $mod_strings = Array(
 	'LBL_YEAR'=>'Jahr',
 	'LBL_UNTIL' => 'Bis',
 	'LBL_SET_DATE'=>'Datum',
+	'LBL_SET_DATE_TIME'=>'Set Date and Time',
 	'LBL_SM_MON' => 'Mo',
 	'LBL_SM_TUE' => 'Di',
 	'LBL_SM_WED' => 'Mi',

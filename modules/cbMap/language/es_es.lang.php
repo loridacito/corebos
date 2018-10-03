@@ -8,7 +8,7 @@
  * All Rights Reserved.
  ************************************************************************************/
 
-$mod_strings = Array(
+$mod_strings = array(
 	'cbMap' => 'Mapas de Negocio',
 	'SINGLE_cbMap' => 'Mapa de Negocio',
 	'cbMap ID' => 'ID Mapa de Negocio',
@@ -35,9 +35,11 @@ $mod_strings = Array(
 	'Record Access Control' => 'Control de Acceso a Registro',
 	'Record Set Mapping' => 'Conjunto de Registros',
 	'Module Set Mapping' => 'Conjunto de Módulos',
+	'Field Set Mapping' => 'Conjunto de Campos',
 	'ListColumns' => 'Columnas de Listas',
 	'DuplicateRelations' => 'Duplicar Relaciones',
 	'MasterDetailLayout' => 'Disposición Maestro-Detalle',
 	'Validations' => 'Validaciones',
+	'Detail View Layout Mapping' => 'Asignación de diseño de vista de detalle',
 );
 ?>

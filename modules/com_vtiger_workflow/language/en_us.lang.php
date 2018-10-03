@@ -38,7 +38,6 @@ $mod_strings = array(
 'LBL_WORKFLOW_NOTE_CRON_CONFIG'=>'NOTE: You should have Workflow cron script configured.',
 'LBL_NO_TEMPLATES'=>'No Templates',
 'LBL_SELECT'=>'Select',
-'LBL_MESSAGE'=>'Message',
 'LBL_SET_FIELD_VALUES'=>'Set Field Values',
 'LBL_ADD_FIELD'=>'Add Field',
 
@@ -158,6 +157,7 @@ $mod_strings = array(
 'Workflow for Calendar Todos when Send Notification is True' => 'Workflow for Calendar Todos when Send Notification is True',
 'Calculate or Update forecast amount' => 'Calculate or Update forecast amount',
 'LBL_METHOD_NAME' => 'Method Name',
-'NO_METHOD_AVAILABLE' => 'No method is available for this module.'
+'NO_METHOD_AVAILABLE' => 'No method is available for this module.',
+'launchrelwf' => 'Launch workflows on related updates',
 );
 ?>

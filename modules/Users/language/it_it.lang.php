@@ -13,7 +13,7 @@
  * permissions and limitations under the License. You may obtain a copy of the License
  * at <http://corebos.org/documentation/doku.php?id=en:devel:vpl11>
  *************************************************************************************************/
- $mod_strings = array (
+$mod_strings = array(
   'LBL_MODULE_NAME' => 'Utenti',
   'LBL_MODULE_TITLE' => 'Utenti: Home',
   'LBL_SEARCH_FORM_TITLE' => 'Utenti Cerca',
@@ -48,6 +48,9 @@
   'LBL_NEW_USER_BUTTON_TITLE' => 'Nuovo Utente [Alt+N]',
   'LBL_NEW_USER_BUTTON_LABEL' => 'Nuovo Utente',
   'LBL_NEW_USER_BUTTON_KEY' => 'N',
+  'LBL_EXPORT_USER_BUTTON_TITLE' => 'Esporta utenti [Alt+E]',
+  'LBL_EXPORT_USER_BUTTON_LABEL' => 'Esporta utenti',
+  'LBL_EXPORT_USER_BUTTON_KEY' => 'E',
   'LBL_DATE_FORMAT' => 'Formato Data',
 
   'LBL_ERROR' => 'Errore:',
@@ -223,8 +226,6 @@
   'LBL_GROUP_MESG2' => 'Per aggiungere, seleziona i membri dell`Entit&agrave;  da sinistra e clicca il bottone \\\\\\\">>\\\\\\\"',
   'LBL_GROUP_MESG3' => 'Per rimuovere, seleziona il Gruppo di membri dalla destra e clicca il bottone \\\\\\\"<<\\\\\\\"',
 
-
-
   'LBL_DETAIL_VIEW_OF_EMAIL_TEMPLATE' => 'Vista Dettagliata del Template Email',
   'LBL_DETAIL_VIEW' => 'Vista Dettagliata di ',
   'LBL_EDIT_VIEW' => 'Modifica dettagli dell`utente ',
@@ -238,7 +239,6 @@
   'LBL_EMAIL_TEMPLATE_DESC' => 'Gestisci i Template e-mail usati per le Campagne e il Mass Mailing',
   'LBL_NAME' => 'Nome:',
 
-
   'LBL_CUSTOMISE_TABS' => 'Personalizza i Tabs',
   'LBL_CHOOSE_TABS' => 'Scegli Tabs',
   'LBL_AVAILABLE_TABS' => 'Tabs disponibili',
@@ -247,13 +247,10 @@
   'LBL_TAB_MENU_UPDATED' => 'il menu dei Tab &egrave; stato caricato! Vai a',
   'LBL_TO_VIEW_CHANGES' => 'per vedere i cambiamenti',
 
-
   'LBL_CHANGE_HOMEPAGE_LABEL' => 'Ordine in HomePage',
   'LBL_CHANGE_HOMEPAGE_TITLE' => 'Homepage',
 
-
   'LBL_OERATION' => 'Operazione',
-
 
   'LBL_PROFILE_NAME' => 'Crea Nuovo Profilo:',
   'LBL_NEW_PROFILE' => 'Nuovo Profilo:',
@@ -311,7 +308,6 @@
   'LBL_RELATED_MODULE_RIGHTS' => 'Diritti sui Moduli Collegati',
   'LBL_IN_PERMISSION' => 'nel permesso',
 
-
   'LBL_HDR_ROLE_NAME' => 'Crea Nuovo Ruolo:',
   'LBL_TITLE_ROLE_NAME' => 'Nuovo Ruolo',
   'LBL_ROLE_NAME' => 'Nome Ruolo',
@@ -325,8 +321,6 @@
   'LBL_ASSOCIATED_PROFILES' => 'Profili Associati:',
   'LBL_ASSOCIATED_USERS' => 'Utenti Associati:',
 
-
-
   'LBL_ORG_SHARING_PRIVILEGES' => 'Privilegi condivisi dall`organizzazione',
   'LBL_EDIT_PERMISSIONS' => 'Modifica Permessi',
   'LBL_SAVE_PERMISSIONS' => 'Salva Permessi',
@@ -334,7 +328,6 @@
   'LBL_EDIT_CREATE_ONLY' => 'Pubblico: Lettura, Creazione, Modifica',
   'LBL_READ_CREATE_EDIT_DEL' => 'Pubblico: Lettura, Creazione, Modifica, Cancellazione',
   'LBL_PRIVATE' => 'Privato',
-
 
   'LBL_HDR_EMAIL_SCHDS' => 'Utenti: Email di notifica',
   'LBL_EMAIL_SCHDS_DESC' => 'La seguente &egrave; la lista delle notifiche che sono attivate automaticamente quando l`evento corrispondente &egrave; accaduto',
@@ -357,21 +350,14 @@
   'LBL_BUTTON_UPDATE' => 'Aggiorna',
   'LBL_MODULENAMES' => 'Modulo',
 
-
   'LBL_FIELD_PERMISSION_FIELD_NAME' => 'Nome Campo',
   'LBL_FIELD_PERMISSION_VISIBLE' => 'Visibile',
   'LBL_FIELD_PERMISSIOM_TABLE_HEADER' => 'Campi Standard',
   'LBL_FIELD_LEVEL_ACCESS' => 'Accesso a Livello Campo',
-
-
   'LBL_SIGNATURE' => 'Firma',
-
-
   'LBL_ACTIVITY_NOTIFICATION' => 'Notifica Avviso Eventi',
   'LBL_ACTIVITY_REMINDER_DESCRIPTION' => 'Notifica prima che accada un evento, basandosi sulle impostazioni di avviso',
   'LBL_MESSAGE' => 'Messaggio',
-
-
 
   'Public: Read Only' => 'Pubblico: Solo Lettura',
   'Public: Read, Create/Edit' => 'Pubblico: Lettura, Creazione/ Modifica',
@@ -397,9 +383,6 @@
   'LBL_PRIVILEGES' => 'Privilegi',
   'LBL_OF' => 'di',
 
-
-
-
   'LBL_ADD_MAILSERVER_BUTTON_TITLE' => 'Aggiungi Server di Posta',
   'LBL_ADD_MAILSERVER_BUTTON_KEY' => 'M',
   'LBL_ADD_MAILSERVER_BUTTON_LABEL' => 'Aggiungi Server di Posta',
@@ -411,7 +394,6 @@
   'INV_TANDC' => 'Termini e Condizioni',
   'INV_TERMSANDCONDITIONS' => 'Inventario Termini e Condizioni',
   'LBL_INV_TERMSANDCONDITIONS' => 'Gestione Inventario',
-
 
   'INVENTORYNOTIFICATION' => 'Notifica Inventario',
   'LBL_INVENTORY_NOTIFICATIONS' => 'Modifica Notifiche Inventario via Mail',
@@ -426,32 +408,19 @@
   'SalesOrderNotification' => 'Notifica Stock Prodotto durante la generazione degli ordini di vendita',
   'SalesOrderNotificationDescription' => 'Durante la generazione di ordini di vendita se il Prodotto in magazzino &egrave; meno del quantit&agrave; menzionata negli ordini di vendita allora manda una notifica al Responsabile del Prodotto',
 
-
   'LBL_USER_FIELDS' => 'Campi Utente',
   'LBL_NOTE_DO_NOT_REMOVE_INFO' => 'Nota: Non rimuovere o alterare i valori tra { }',
 
-
   'LBL_FILE_INFORMATION' => 'Informazioni di File',
-
-
   'LBL_LEAD_FIELD_ACCESS' => 'Accesso Campo Lead',
-
   'LBL_ACCOUNT_FIELD_ACCESS' => 'Accesso Campo Azienda',
-
   'LBL_CONTACT_FIELD_ACCESS' => 'Accesso Campo Contatto',
-
   'LBL_OPPORTUNITY_FIELD_ACCESS' => 'Accesso Campo Opportunit&agrave;',
-
   'LBL_HELPDESK_FIELD_ACCESS' => 'Accesso Campo Assistenza Clienti',
-
   'LBL_PRODUCT_FIELD_ACCESS' => 'Accesso Campo Prodotto',
-
   'LBL_NOTE_FIELD_ACCESS' => 'Accesso Campo Note',
-
   'LBL_EMAIL_FIELD_ACCESS' => 'Accesso Campo Email',
-
   'LBL_TASK_FIELD_ACCESS' => 'Accesso Campo Compiti',
-
   'LBL_EVENT_FIELD_ACCESS' => 'Accesso Campo Evento',
   'LBL_VENDOR_FIELD_ACCESS' => 'Accesso Campo Fornitore',
   'LBL_PB_FIELD_ACCESS' => 'Accesso Listino',
@@ -459,7 +428,6 @@
   'LBL_PO_FIELD_ACCESS' => 'Accesso Campo Ordine di Vendita',
   'LBL_SO_FIELD_ACCESS' => 'Accesso Ordine di Vendita',
   'LBL_INVOICE_FIELD_ACCESS' => 'Accesso Campo Fattura',
-
 
   'LBL_COLOR' => 'Colori in Calendario',
 
@@ -482,7 +450,6 @@
   'LTFAQ' => 'Mie FAQ Recenti',
   'UA'=>'Attivita in Scadenza',
   'PA'=>'Attivita aperte',
-
 
   'LBL_GROUP_NAME_ERROR' => 'Nome del gruppo gi&agrave; esistente!',
   'MNL' => 'Miei nuovi Lead',
@@ -525,8 +492,6 @@
   'LBL_MORE_INFORMATION' => 'Pi&ugrave; Informazioni',
   'LBL_USERLOGIN_ROLE' => 'Ruolo e Login Utente',
   'LBL_USER_IMAGE_INFORMATION' => 'Fotografia Utente',
-
-
   'Role' => 'Ruolo',
   'Email' => 'Email',
   'Admin' => 'Amministratore',
@@ -563,7 +528,6 @@
   'Symbol Placement' => 'Posizione Simbolo Valuta',
   'Digit Grouping Separator' => 'Separatore delle Migliaia',
   'Digit Grouping Pattern' => 'Modello Raggruppamento delle Migliaia',
-  'Number Of Currency Decimals'  =>  'Number Of Currency Decimals',
   'LBL_SHOWN' => 'Mostrato',
   'LBL_HIDDEN' => 'Nascosto',
   'LBL_SHOW' => 'Mostra',
@@ -640,7 +604,15 @@
   'LBL_3_MIN' => '3 minuti',
   'LBL_4_MIN' => '4 minuti',
   'LBL_5_MIN' => '5 minuti',
-  'LBL_EMAILS_PER_PAGE' => 'Email per pagina',
+	'None' => 'None',
+	'1 Minute' => '1 Minuto',
+	'5 Minutes' => '5 Minuti',
+	'15 Minutes' => '15 Minuti',
+	'30 Minutes' => '30 Minuti',
+	'45 Minutes' => '45 Minuti',
+	'1 Hour' => '1 Hour',
+	'1 Day' => '1 Day',
+	'LBL_EMAILS_PER_PAGE' => 'Email per pagina',
 
   'LBL_ENTER_PROFILE' => 'Inserisci il nome del profilo',
   'TITLE_USER_DOCUMENT' => 'Documento senza nome',
@@ -652,7 +624,7 @@
   'LBL_SSL' => 'SSL',
 
   'LBL_USERNAME_EXIST' => 'Nome utente gi&agrave; esistente!',
- 
+
  'LBL_UNAUTHORIZED_ACCESS' => 'Accesso non autorizzato all`amministrazione utenti',
 
   'LBL_TAGCLOUD_DISPLAY' => 'Tag Cloud Display',
@@ -794,10 +766,14 @@
 'Min. 1 number' => 'Minimo un numero',
 'Min. 1 special character' => 'Minimo un carattere speciale ! ? , ; - @ #',
 'Generate password' => 'Genera password',
+'ERR_USER_LOGGED_IN' => 'The User Name is currently in use on another computer. Terminate the session in use or enter a different User Name.',
+'ERR_USER_CAN_UNBLOCK' => 'An inactive session by the same User Name is blocking your login attempt(s).',
+'LBL_USERLOGGEDOUTOK' => 'The user has been logged out correctly.',
+'LBL_USERLOGGEDOUTNOK' => 'The user could not be logged out.',
+'LBL_UNBLOCK_USR' => 'Unblock the session to login?',
 // LDAP
 'LBL_QUERY' => 'Query',
 'LBL_FORE_LASTNAME' => 'Nome o Cognome',
 'LBL_NO_LDAP_MATCHES' => 'Combinazione non trovata nel server LDAP!',
- );
-
+);
 ?>

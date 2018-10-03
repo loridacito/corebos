@@ -2,12 +2,12 @@
 /***********************************************************
 *  Module       : General
 *  Language     : French
-*  Version      : 5.4.0 
+*  Version      : 5.4.0
 *  License      : GPL
 *  Author       : ABOnline solutions http://www.vtiger-crm.fr
 ***********************************************************/
 
-$app_strings = array (
+$app_strings = array(
 	'LBL_BROWSER_TITLE' => 'coreBOS',
 	'LBL_MY_ACCOUNT' => 'Mon compte',
 	'LBL_MY_PREFERENCES' => 'Mes préférences',
@@ -20,6 +20,7 @@ $app_strings = array (
 	'LBL_SHOW' => 'Afficher :',
 	'today' => 'Aujourd\'hui',
 	'all' => 'Tout',
+	'Generate Document'=>'Merge Document',
 	'LBL_UPCOMING_EVENTS' => 'Activités en cours',
 	'LBL_PENDING_EVENTS' => 'Activités en attente',
 	'NTC_WELCOME_MESSAGE' => 'Bienvenue sur coreBOS',
@@ -34,9 +35,11 @@ $app_strings = array (
 	'LBL_SEND_MAIL_BUTTON' => 'Envoyer email',
 	'LBL_SAVE_BUTTON_TITLE' => 'Enregistrer [Alt+S]',
 	'LBL_EDIT_BUTTON_TITLE' => 'Editer [Alt+E]',
+	'LBL_RECALCULATE_BUTTON_TITLE' => 'Recalculer [Alt+R]',
 	'LBL_CONVERTSO_BUTTON_TITLE' => 'Nouveau bon de commande',
 	'LBL_CONVERTINVOICE_BUTTON_TITLE' => 'Facturer',
 	'LBL_EDIT_BUTTON' => 'Editer',
+	'LBL_COPY_BUTTON'=>'Copier',
 	'LBL_DUPLICATE_BUTTON_TITLE' => 'Copier [Alt+U]',
 	'LBL_DUPLICATE_BUTTON' => 'Copier',
 	'LBL_TABCUSTOMISE_BUTTON_TITLE' => 'Personnaliser [Alt+C]',
@@ -70,6 +73,7 @@ $app_strings = array (
 	'LBL_CONVERTSO_BUTTON_KEY' => 'S',
 	'LBL_CONVERTINVOICE_BUTTON_KEY' => 'I',
 	'LBL_DUPLICATE_BUTTON_KEY' => 'U',
+	'LBL_RECALCULATE_BUTTON_KEY' => 'R',
 	'LBL_DELETE_BUTTON_KEY' => 'D',
 	'LBL_NEW_BUTTON_KEY' => 'N',
 	'LBL_CHANGE_BUTTON_KEY' => 'G',
@@ -83,6 +87,7 @@ $app_strings = array (
 	'LBL_CONVERTINVOICE_BUTTON_LABEL' => 'Convertir en facture',
 	'LBL_DUPLICATE_BUTTON_LABEL' => 'Copier',
 	'LBL_DELETE_BUTTON_LABEL' => 'Supprimer',
+	'LBL_RECALCULATE_BUTTON' => 'Recalculer',
 	'LBL_NEW_BUTTON_LABEL' => 'Créer',
 	'LBL_CHANGE_BUTTON_LABEL' => 'Modifier',
 	'LBL_CANCEL_BUTTON_LABEL' => 'Annuler',
@@ -133,6 +138,8 @@ $app_strings = array (
 	'LNK_HELP' => 'Aide',
 	'LNK_ABOUT' => 'A propos',
 	'LNK_OUTLOOK' => './include/images/outlook_download.gif',
+	'LBL_ACTIVATE' => 'Activer',
+	'LBL_DEACTIVATE' => 'Désactiver',
 	'SINGLE_Accounts' => 'Compte',
 	'SINGLE_Contacts' => 'Contact',
 	'SINGLE_Campaigns' => 'Campagne',
@@ -155,7 +162,6 @@ $app_strings = array (
 	'SINGLE_Rss' => 'Rss',
 	'SINGLE_Reports' => 'Rapport',
 	'SINGLE_Portal' => 'Marque-page',
-	'SINGLE_Webmails' => 'Messagerie',
 	'SINGLE_Users' => 'Collaborateur',
 	'NEW' => 'Créer',
 	'NTC_REQUIRED' => 'Indique des champs requis',
@@ -199,10 +205,13 @@ $app_strings = array (
 	'Photo2Document' => 'Photo à Document',
 	'Snap Photo' => 'Prendre Photo',
 	'Clear Photo' => 'Autre Photo',
+	'DocumentCreatedRelated' => 'Document added and related',
 	'Export' => 'Exporter',
 	'Import' => 'Importer',
 	'Merge' => 'Fusionner',
 	'ConvertLead' => 'Convertir',
+	'Is Converted From Lead' => 'Est converti de prospect',
+	'Converted From Lead' => 'Converti de prospect',
 	'LBL_SHOW_RESULTS' => 'Afficher',
 	'LBL_TOTAL_RECORDS_FOUND' => 'Nombre de correspondances : ',
 	'LBL_SEARCH_RESULTS_FOR' => ' -- Résultat(s) pour ',
@@ -345,7 +354,6 @@ $app_strings = array (
 	'Sales Stage' => 'Phase de vente',
 	'Amount' => 'Montant',
 	'Expected Close' => 'Échéance',
-	'Contact Name' => 'Contact',
 	'Related to' => 'Relatif à',
 	'File' => 'Fichier',
 	'Last Modified' => 'Modifié le',
@@ -380,7 +388,6 @@ $app_strings = array (
 	'Events' => 'Activités',
 	'Tasks' => 'Tâches',
 	'Todo' => 'Tâche en attente',
-	'Meeting' => 'Rencontre',
 	'PriceBook' => 'Grille tarifaire',
 	'Calendar' => 'Tâches Agenda',
 	'Home' => 'Accueil',
@@ -392,7 +399,6 @@ $app_strings = array (
 	'Vendors' => 'Fournisseurs',
 	'Rss' => 'RSS',
 	'Portal' => 'Mes sites',
-	'Webmails' => 'Webmail',
 	'Activity History' => 'Historique activitées',
 	'Ticket History' => 'Historique ticket',
 	'Purchase Order' => 'Commande Fournisseurs',
@@ -440,7 +446,6 @@ $app_strings = array (
 	'LBL_RSS_FEEDS' => 'Canal RSS',
 	'LBL_ADD_RSS_FEEDS' => 'Ajouter canal RSS',
 	'LNK_NEW_FAQ' => 'Nouvelle FAQ',
-	'Vendor Name' => 'Nom fournisseur',
 	'LNK_WEARE' => 'A propos',
 	'LBL_DISCUSS' => 'Discuter avec d\'autres utilisateurs',
 	'Quote Stage' => 'Phase devis',
@@ -457,10 +462,10 @@ $app_strings = array (
 	'Invoice No' => 'Ref',
 	'Sales Order' => 'Bon de commande',
 	'COMBO_QUOTES' => 'Devis',
-	'End Date' => 'Date de fin',
-	'End Date & Time' => 'Date et heure de fin',
+	'End Date' => 'Date de fin (System Date)',
+	'End Date & Time' => 'Date et heure de fin (System Date)',
 	'Start Date' => 'Date de début',
-	'Start Date & Time' => 'Date et heure de début',
+	'Start Date & Time' => 'Date et heure de début (System Date)',
 	'Recurring Type' => 'Type planification',
 	'SalesOrders' => 'Bon de commande',
 	'LBL_QUOTE_NAME' => 'Nom devis',
@@ -581,7 +586,7 @@ $app_strings = array (
 	'LBL_TOOLS' => 'Outils',
 	'LBL_DISCOUNT' => 'Remise',
 	'LBL_TOTAL_AFTER_DISCOUNT' => 'Total après remise',
-	'LBL_NET_TOTAL' => 'Total HT',
+	'LBL_NET_TOTAL' => 'Total Net (bGD)',
 	'LBL_SHIPPING_AND_HANDLING_CHARGES' => 'Frais d\'expédition',
 	'LBL_TAX_FOR_SHIPPING_AND_HANDLING' => 'Taxe d\'expédition',
 	'LBL_FINISH' => 'Terminer',
@@ -601,6 +606,24 @@ $app_strings = array (
 	'LBL_TOTAL_TAX_AMOUNT' => 'Total taxes',
 	'LBL_FINAL_DISCOUNT_AMOUNT' => 'Montant remise',
 	'LBL_SHIPPING_AND_HANDLING_CHARGE' => 'Expédition et transport',
+	'Gross Total' => 'Gross Total',
+	'Line Discount' => 'Line Discount',
+	'Global Discount' => 'Global Discount',
+	'Total Discount' => 'Total Discount',
+	'Net Total (aGD)' => 'Net Total (aGD)',
+	'Net Total (bGD)' => 'Net Total (bGD)',
+	'bGD' => 'before Global Discount',
+	'aGD' => 'after Global Discount',
+	'SH Total' => 'SH Total',
+	'SH Tax' => 'SH Tax',
+	'Final Adjustment' => 'Final Adjustment',
+	'Grand Total' => 'Grand Total',
+	'Total Tax' => 'Total Tax',
+	'Total Tax Retention' => 'Total Tax Retention',
+	'LBL_Invoice_FINANCIALINFO' => 'Financial Information',
+	'LBL_PurchaseOrder_FINANCIALINFO' => 'Financial Information',
+	'LBL_Quotes_FINANCIALINFO' => 'Financial Information',
+	'LBL_SalesOrder_FINANCIALINFO' => 'Financial Information',
 	'LBL_GO_BACK' => 'Retour',
 	'LBL_RECORD_DELETE' => 'L\'enregistrement que vous tentez de visualiser a été supprimé.',
 	'Part Number' => 'Ref',
@@ -621,7 +644,7 @@ $app_strings = array (
 	'LBL_RENAME_PROFILE' => 'Renommer profil',
 	'LBL_PROFILE_NAME' => 'Nom profil',
 	'LBL_START_DATE' => 'Date de début',
-	'LBL_START_DATE_TIME' => 'Date et heure de début',
+	'LBL_START_DATE_TIME' => 'Date et heure de début (System Date)',
 	'LBL_END_DATE' => 'Date de fin',
 	'LBL_END_DATE_TIME' => 'Date et heure de fin',
 	'LBL_CREATE_MERGE_TEMPLATE' => 'Créer modèle de document',
@@ -639,7 +662,6 @@ $app_strings = array (
 	'less_than' => 'inférieur à',
 	'greater_or_equal' => 'supérieur ou égal',
 	'less_or_equal' => 'inférieur ou égal',
-	
 
 	'LABEL_SET_DISCOUNT_FOR_COLON' => 'Fixer une remise pour :',
 	'LABEL_SET_TAX_FOR' => 'Fixer la taxe pour',
@@ -826,6 +848,8 @@ $app_strings = array (
 	'FOLDER_NAME_ALLOW_20CHARS' => '20 caractères max.',
 	'SPECIAL_CHARS_NOT_ALLOWED' => 'Les caractères spéciaux ne sont pas autorisés.',
 	'LBL_SIGN_IN' => 'Identification',
+	'StartSession' => 'Start Session',
+	'CapsLockActive' => 'CapsLock is active',
 	'LBL_ROOT' => 'Root',
 	'LBL_FIRST' => 'Premier',
 	'LBL_LAST' => 'Dernier',
@@ -891,7 +915,7 @@ $app_strings = array (
 	'LBL_ALL_DATA' => 'Exporter toutes les données',
 	'LBL_DATA_IN_CURRENT_PAGE' => 'Exporter les données de la page courante',
 	'LBL_ONLY_SELECTED_RECORDS' => 'Exporter les entrées sélectionnées',
-	'LBL_YES' => 'Oui',	
+	'LBL_YES' => 'Oui',
 	'Planned' => 'Planifiée',
 	'Held' => 'A eu lieu',
 	'Not Held' => 'N\'a pas eu lieu',
@@ -1069,8 +1093,6 @@ $app_strings = array (
 	'LBL_CALLER_INFORMATION'=>'Information correspondant',
 	'LBL_CALLER_NUMBER'=>'Numéro :',
 	'LBL_CALLER_NAME'=>'Nom :',
-
-
 	'LBL_DUPLICATE' => 'Dupliquer',
 	'LBL_CLICK' => 'Clic',
 	'LBL_TO_CONFIGURE' => 'pour configurer le',
@@ -1086,6 +1108,7 @@ $app_strings = array (
 	'LBL_DUP_PERMISSION' => 'Vous n\'êtes pas autorisé à supprimer ',
 	'recordid' => 'recordid',
 	'Entity Type' => 'Type d\'entité',
+	'RecordDuplicated'=>'Record has been duplicated. This is the new record.',
 	'LBL_GMAIL' => 'Gmail',
 	'LBL_BOOKMARKLET' => 'Favoris',
 	'PRIVATE_FILTER' => 'Privé',
@@ -1108,12 +1131,11 @@ $app_strings = array (
 
 	'Todos' => 'faire A',
 
-
 	'LBL_POSTPONE'=>'Reporté',
 
 	// Unified Search extended support
 	'LBL_SELECT_MODULES_FOR_SEARCH' => 'Sélectionnez les modules dans lesquels la recherche sera effectuée',
-	'LBL_SELECT_ALL' => 'Tous', 
+	'LBL_SELECT_ALL' => 'Tous',
 	'LBL_UNSELECT_ALL' => 'Aucun',
 	'LBL_FIELD_FOR_COMPARISION' => 'Champs à comparer',
 	'LBL_DONE' => ' OK ',
@@ -1124,7 +1146,7 @@ $app_strings = array (
 	// For note link on the detailview
 	'LBL_ADD_NOTE'=>'Ajouter une note',
 
-	// For Layout Editor 
+	// For Layout Editor
 	'LBL_UNHIDE_FIELDS'=>'Champs cachés',
 
 	// For Mass Edit
@@ -1141,8 +1163,6 @@ $app_strings = array (
 	'LBL_REFRESH' => 'Rafraîchir',
 	'LBL_Reminder' => 'Rappel',
 	'LBL_RESET_PASSWORD' => 'Regénérer le mot de passe',
-
-
 
 	'LBL_CRITERIA_AND'=>'et',
 	'LBL_CRITERIA_OR'=>'ou',
@@ -1175,10 +1195,9 @@ $app_strings = array (
 	'Shipping & Handling Charges' => 'Frais d\'expédition',
 	'Shipping & Handling Tax:' => 'Taxe d\'expédition:',
 	'Quantity' => 'Quantité',
-	'Net Total' => 'Total Net',
+	'Net Total' => 'Total Net (bGD)',
 	'Send SMS' => 'Envoyer un SMS',
 
-	'LBL_MORE'=>'Plus',
 	'LBL_CRM_SETTINGS' => 'Configuration CRM ',
 	'LBL_RELATED_TO_THIS' =>'relatif à ce(tte)',
 	'LBL_DESELECT_ALL' => 'Désélectionner tout',
@@ -1198,6 +1217,14 @@ $app_strings = array (
 	'Subscribe' => 'Souscrire',
 	'View History' => 'Voir Historique',
 	'SYNCH_NOW' => 'Sync Now',
+	'Updated' => 'Updated',
+	'id' => 'id',
+	'data' => 'data',
+	'record' => 'Record',
+	'saved' => 'saved',
+	'notsaved' => 'notsaved',
+	'processcomplete' => 'Process Complete',
+	'typetosearch_prodser' => 'Type to search products or services',
 );
 
 // Translation for currency names
@@ -1319,7 +1346,6 @@ $app_currency_strings = array(
 	'Venezuela, Bolivares Fuertes' => 'Venezuela, Bolivares Fuertes',
 	'Vietnam, Dong' 		=> 'Vietnam, Dong',
 	'Zimbabwe Dollars' 		=> 'Zimbabwe Dollars',
-	'China, Yuan Renminbi' 	=> 'China, Yuan Renminbi',
 	'Afghanistan, Afghanis' => 'Afghanistan, Afghanis',
 	'Cambodia, Riels' 		=> 'Cambodia, Riels',
 	'China, Yuan Renminbi'	=> 'China, Yuan Renminbi',

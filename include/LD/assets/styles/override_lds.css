@@ -4,6 +4,36 @@ hr {
 	margin: 0px;
 }
 
+.total_autocomplete {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  margin-bottom: 0.125rem;
+  margin-right:5px;
+  float:right;
+}
+  
+.dvtCellInfo ul { 
+   list-style-type: disc; 
+   list-style-position: inside; 
+}
+.dvtCellInfo ol { 
+   list-style-type: decimal; 
+   list-style-position: inside; 
+}
+.dvtCellInfo ul ul,.dvtCellInfo  ol ul { 
+   list-style-type: circle; 
+   list-style-position: inside; 
+   margin-left: 15px; 
+}
+.dvtCellInfo ol ol,.dvtCellInfo ul ol { 
+   list-style-type: lower-latin; 
+   list-style-position: inside; 
+   margin-left: 15px; 
+}
+
 .cbslds-button--icon-more {
 	width: 1.875rem;
 	height: 1.875rem;
@@ -128,6 +158,12 @@ hr {
     top: -0.0625rem;
     right: -0.0625rem;
     animation-name: dotsBounceAfter-extraExtraSmall; }
+  .slds-masseditprogress {
+    z-index:1000000000000000; 
+    position:absolute;
+    top:30%;
+    left:60%;
+    width:40%;}
 
     @keyframes dotsBounceBefore-extraExtraSmall {
 60% {
@@ -364,3 +400,9 @@ hr {
     transform: translateX(0.75rem); }
   100% {
     transform: translateX(0); } }
+
+@media print {
+	a[href]:after {
+		content: none;
+	}
+}

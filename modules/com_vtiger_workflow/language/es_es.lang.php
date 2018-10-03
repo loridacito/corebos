@@ -71,7 +71,6 @@ $mod_strings = array(
 'LBL_AttachmentInField' => 'Adjunto en campo',
 'LBL_WORKFLOW_NOTE_EVENT_TASK_TIMEZONE' => 'Nota: Todas las fechas, horas e información recurrente configurada para el evento,
 											serán respecto a la zona horaria por defecto, configurada en config.inc.php',
-
 'Select Meta Variables' => 'Selecciona Meta Variables',
 'Current Date' => 'Fecha Actual',
 'Current Time' => 'Hora Actual',
@@ -142,7 +141,6 @@ $mod_strings = array(
 'LBL_SELECTED_DATES' => 'Fechas seleccionadas',
 'LBL_EXCEEDING_MAXIMUM_LIMIT' => 'Se ha excedido el límite máximo permtido',
 'LBL_NEXT_TRIGGER_TIME' => 'Próxima ejecución',
-'LBL_MESSAGE' => 'Mensaje',
 'UpdateInventoryProducts On Every Save' => 'Actualizar inventario de productos',
 'Send Email to user when Notifyowner is True' => 'Envíar Email al usuario cuando Notificación Propietario está activado',
 'Send Email to user when Portal User is True' => 'Envíar Email al usuario cuando Portal de Usuario está activado',
@@ -155,6 +153,7 @@ $mod_strings = array(
 'Workflow for Calendar Todos when Send Notification is True' => 'Flujo de Trabajo para Tareas de Calendario cuando el Envío de Notificación está activado',
 'Calculate or Update forecast amount' => 'Calcular cantidad objetiva en oportunidad',
 'LBL_METHOD_NAME' => 'Nombre del Método',
-'NO_METHOD_AVAILABLE' => 'No hay ningún método disponible para este Módulo.'
+'NO_METHOD_AVAILABLE' => 'No hay ningún método disponible para este Módulo.',
+'launchrelwf' => 'Ejecutar flujos en actualizaciones de módulos relacionados',
 );
 ?>

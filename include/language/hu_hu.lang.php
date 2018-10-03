@@ -1,14 +1,10 @@
 <?php
-/*********************************************************************************
- * The contents of this file are subject to the SugarCRM Public License Version 1.1.2
- * ("License"); You may not use this file except in compliance with the
- * License. You may obtain a copy of the License at http://www.sugarcrm.com/SPL
- * Software distributed under the License is distributed on an  "AS IS"  basis,
- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for
- * the specific language governing rights and limitations under the License.
- * The Original Code is:  SugarCRM Open Source
- * The Initial Developer of the Original Code is SugarCRM, Inc.
- * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.;
+/*+********************************************************************************
+ * The contents of this file are subject to the vtiger CRM Public License Version 1.0
+ * ("License"); You may not use this file except in compliance with the License
+ * The Original Code is:  vtiger CRM Open Source
+ * The Initial Developer of the Original Code is vtiger.
+ * Portions created by vtiger are Copyright (C) vtiger.
  * All Rights Reserved.
  * Contributor(s): Istvan Holbok,  e-mail: holbok@gmail.com , mobil: +3670-3420900 , Skype: holboki
  ********************************************************************************/
@@ -25,6 +21,7 @@ $app_strings = array(
 	'LBL_SHOW' => 'Mutat :',
 	'today' => 'Ma',
 	'all' => 'Minden',
+	'Generate Document'=>'Merge Document',
 	'LBL_UPCOMING_EVENTS' => 'Esedékes teendők',
 	'LBL_PENDING_EVENTS' => 'Függő teendők',
 	'NTC_WELCOME_MESSAGE' => 'Üdvözlünk a coreBOS-ben!',
@@ -39,9 +36,11 @@ $app_strings = array(
 	'LBL_SEND_MAIL_BUTTON' => 'Email küldés',
 	'LBL_SAVE_BUTTON_TITLE' => 'Mentés [Alt+S]',
 	'LBL_EDIT_BUTTON_TITLE' => 'Szerkesztés [Alt+E]',
+	'LBL_RECALCULATE_BUTTON_TITLE' => 'Újraszámolja [Alt+R]',
 	'LBL_CONVERTSO_BUTTON_TITLE' => 'Új Rendelés',
 	'LBL_CONVERTINVOICE_BUTTON_TITLE' => 'Új Díjbekérő',
 	'LBL_EDIT_BUTTON' => 'Szerkesztés',
+	'LBL_COPY_BUTTON'=>'Másolás',
 	'LBL_DUPLICATE_BUTTON_TITLE' => 'Másolás [Alt+U]',
 	'LBL_DUPLICATE_BUTTON' => 'Másolás',
 	'LBL_TABCUSTOMISE_BUTTON_TITLE' => 'Testreszab [Alt+C]',
@@ -75,6 +74,7 @@ $app_strings = array(
 	'LBL_CONVERTSO_BUTTON_KEY' => 'S',
 	'LBL_CONVERTINVOICE_BUTTON_KEY' => 'I',
 	'LBL_DUPLICATE_BUTTON_KEY' => 'U',
+	'LBL_RECALCULATE_BUTTON_KEY' => 'R',
 	'LBL_DELETE_BUTTON_KEY' => 'D',
 	'LBL_NEW_BUTTON_KEY' => 'N',
 	'LBL_CHANGE_BUTTON_KEY' => 'G',
@@ -87,6 +87,7 @@ $app_strings = array(
 	'LBL_CONVERTSO_BUTTON_LABEL' => 'Új Rendelés',
 	'LBL_CONVERTINVOICE_BUTTON_LABEL' => 'Új Díjbekérő',
 	'LBL_DUPLICATE_BUTTON_LABEL' => 'Másol',
+	'LBL_RECALCULATE_BUTTON' => 'Újraszámolja',
 	'LBL_DELETE_BUTTON_LABEL' => 'Töröl',
 	'LBL_NEW_BUTTON_LABEL' => 'Új',
 	'LBL_CHANGE_BUTTON_LABEL' => 'Módosít',
@@ -138,6 +139,8 @@ $app_strings = array(
 	'LNK_HELP' => 'Súgó',
 	'LNK_ABOUT' => 'Névjegy',
 	'LNK_OUTLOOK' => './include/images/outlook_download.gif',
+	'LBL_ACTIVATE' => 'Aktiválja',
+	'LBL_DEACTIVATE' => 'Kikapcsolása',
 	'SINGLE_Accounts' => 'Cég',
 	'SINGLE_Contacts' => 'Kapcsolat',
 	'SINGLE_Campaigns' => 'Kampány',
@@ -160,7 +163,6 @@ $app_strings = array(
 	'SINGLE_Rss' => 'RSS Hírfolyam',
 	'SINGLE_Reports' => 'Jelentés',
 	'SINGLE_Portal' => 'Portal',
-	'SINGLE_Webmails' => 'Webmail',
 	'SINGLE_Users' => 'Felhasználó',
 	'NEW' => 'Új',
 	'NTC_REQUIRED' => 'Kötelező mezőt jelöl',
@@ -204,10 +206,13 @@ $app_strings = array(
 	'Photo2Document' => 'Photo to Document',
 	'Snap Photo' => 'Snap Photo',
 	'Clear Photo' => 'Clear Photo',
+	'DocumentCreatedRelated' => 'Document added and related',
 	'Export' => 'Exportál',
 	'Import' => 'Importál',
 	'Merge' => 'Összefűz',
 	'ConvertLead' => 'Jelöltet átalakít Kapcsolattá',
+	'Is Converted From Lead'  => 'Vevőjelöltből konvertált?',
+	'Converted From Lead'  => 'Vevőjelöltből konvertált',
 	'LBL_SHOW_RESULTS' => 'Mutassa az eredményeket:',
 	'LBL_TOTAL_RECORDS_FOUND' => 'Darab rekordot találtam :',
 	'LBL_SEARCH_RESULTS_FOR' => ' -- Keresés eredménye ',
@@ -399,7 +404,6 @@ $app_strings = array(
 	'Vendors' => 'Beszállítók',
 	'Rss' => 'RSS Hírfolyam',
 	'Portal' => 'Saját weboldalaim',
-	'Webmails' => 'Webmail',
 	'Activity History' => 'Lezárt aktivitások',
 	'Ticket History' => 'Lezárt kérések',
 	'Purchase Order' => 'Beszerzések',
@@ -467,10 +471,10 @@ $app_strings = array(
 	'Quote No' => 'Ajánlat No.',
 	'Sales Order' => 'Megrendelések',
 	'COMBO_QUOTES' => 'Ajánlatok',
-	'End Date' => 'Befejezés dátuma',
-	'End Date & Time' => 'Befejezés dátuma és ideje',
+	'End Date' => 'Befejezés dátuma (System Date)',
+	'End Date & Time' => 'Befejezés dátuma és ideje (System Date)',
 	'Start Date' => 'Kezdés dátuma',
-	'Start Date & Time' => 'Kezdés dátuma és ideje',
+	'Start Date & Time' => 'Kezdés dátuma és ideje (System Date)',
 	'Recurring Type' => 'Ismétlődés típusa',
 	'SalesOrders' => 'Megrendelések',
 	'LBL_QUOTE_NAME' => 'Ajánlat Neve',
@@ -591,7 +595,7 @@ $app_strings = array(
 	'LBL_TOOLS' => 'Eszközök',
 	'LBL_DISCOUNT' => 'Kedvezmény',
 	'LBL_TOTAL_AFTER_DISCOUNT' => 'Összeg Kedvezmények levonása után',
-	'LBL_NET_TOTAL' => 'Nettó Összeg',
+	'LBL_NET_TOTAL' => 'Összesen (bGD)',
 	'LBL_SHIPPING_AND_HANDLING_CHARGES' => 'Szállítási és Kezelési Költség',
 	'LBL_TAX_FOR_SHIPPING_AND_HANDLING' => 'Szállítási és Kezelési Költség ÁFA-ja',
 	'LBL_FINISH' => 'Befejez',
@@ -609,6 +613,24 @@ $app_strings = array(
 	'LBL_NO_DISCOUNT_FOR_THIS_PRODUCT' => 'Nincs kedvezmény erre a termékre',
 	'LBL_NO_DISCOUNT_FOR_THIS_LINE_ITEM' => 'Nincs kedvezmény erre a vonal tételre',
 	'LBL_TOTAL_TAX_AMOUNT' => 'Teljes ÁFA Összeg',
+	'Gross Total' => 'Gross Total',
+	'Line Discount' => 'Line Discount',
+	'Global Discount' => 'Global Discount',
+	'Total Discount' => 'Total Discount',
+	'Net Total (aGD)' => 'Net Total (aGD)',
+	'Net Total (bGD)' => 'Net Total (bGD)',
+	'bGD' => 'before Global Discount',
+	'aGD' => 'after Global Discount',
+	'SH Total' => 'SH Total',
+	'SH Tax' => 'SH Tax',
+	'Final Adjustment' => 'Final Adjustment',
+	'Grand Total' => 'Grand Total',
+	'Total Tax' => 'Total Tax',
+	'Total Tax Retention' => 'Total Tax Retention',
+	'LBL_Invoice_FINANCIALINFO' => 'Financial Information',
+	'LBL_PurchaseOrder_FINANCIALINFO' => 'Financial Information',
+	'LBL_Quotes_FINANCIALINFO' => 'Financial Information',
+	'LBL_SalesOrder_FINANCIALINFO' => 'Financial Information',
 	'LBL_FINAL_DISCOUNT_AMOUNT' => 'Végső Kezvezmény Összeg',
 	'LBL_SHIPPING_AND_HANDLING_CHARGE' => 'Szállítási és Kezelési Költség',
 	'LBL_GO_BACK' => 'Vissza',
@@ -631,9 +653,9 @@ $app_strings = array(
 	'LBL_RENAME_PROFILE' => 'Profil átnevezése',
 	'LBL_PROFILE_NAME' => 'Profil név',
 	'LBL_START_DATE' => 'Kezdő dátum',
-	'LBL_START_DATE_TIME' => 'Kezdő dátum és idő',
-	'LBL_END_DATE' => 'Befejező dátum',
-	'LBL_END_DATE_TIME' => 'Befejező dátum és idő',
+	'LBL_START_DATE_TIME' => 'Kezdő dátum és idő (System Date)',
+	'LBL_END_DATE' => 'Befejező dátum (System Date)',
+	'LBL_END_DATE_TIME' => 'Befejező dátum és idő (System Date)',
 	'LBL_CREATE_MERGE_TEMPLATE' => 'Új dokumentum-összefűzés sablon ',
 	'LBL_IMG_FORMATS' => '(Csak jpg, gif, bmp és png képek)',
 	'group' => 'csoportos',
@@ -831,6 +853,8 @@ $app_strings = array(
 	'FOLDER_NAME_ALLOW_20CHARS' => 'A mappa név maximum 20 karakter hosszú lehet',
 	'SPECIAL_CHARS_NOT_ALLOWED' => 'Különleges karakterek nem megengedettek, próbáld újra...',
 	'LBL_SIGN_IN' => 'Belépés',
+	'StartSession' => 'Start Session',
+	'CapsLockActive' => 'CapsLock is active',
 	'LBL_ROOT' => 'Gyökér',
 	'LBL_FIRST' => 'Első',
 	'LBL_LAST' => 'Utolsó',
@@ -1070,6 +1094,7 @@ $app_strings = array(
 	'LBL_DUP_PERMISSION' => 'Nincs jogosultságod törölni ',
 	'recordid' => 'Rekord',
 	'Entity Type' => 'Entitás típus',
+	'RecordDuplicated'=>'Record has been duplicated. This is the new record.',
 	'LBL_GMAIL' => 'Gmail',
 	'LBL_BOOKMARKLET' => 'Könyvjelző',
 	'PRIVATE_FILTER' => 'Privát',
@@ -1132,7 +1157,7 @@ $app_strings = array(
 	'Shipping & Handling Charges' => 'Szállítási és kezelési költség',
 	'Shipping & Handling Tax:' => 'Szállítási és kezelési ktg. adója',
 	'Quantity' => 'Mennyiség',
-	'Net Total' => 'Összesen',
+	'Net Total' => 'Összesen (bGD)',
 	'Send SMS' => 'SMS küldés',
 	'Add Payment' => 'Add Payment',
 	'LBL_CRM_SETTINGS' => 'CRM beállítások',
@@ -1187,6 +1212,14 @@ $app_strings = array(
 	'Subscribe' => 'Subscribe',
 	'View History' => 'View History',
 	'SYNCH_NOW' => 'Sync Now',
+	'Updated' => 'Updated',
+	'id' => 'id',
+	'data' => 'data',
+	'record' => 'Record',
+	'saved' => 'saved',
+	'notsaved' => 'notsaved',
+	'processcomplete' => 'Process Complete',
+	'typetosearch_prodser' => 'Type to search products or services',
 );
 
 // Translation for currency names

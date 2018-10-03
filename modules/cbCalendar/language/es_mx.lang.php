@@ -8,7 +8,7 @@
  * All Rights Reserved.
  ************************************************************************************/
 
-$mod_strings = Array(
+$mod_strings = array(
 	'cbCalendar' => 'Eventos',
 	'SINGLE_cbCalendar' => 'Evento',
 	'cbCalendar ID' => 'ID Evento',
@@ -20,8 +20,9 @@ $mod_strings = Array(
 	'Subject' => 'Asunto',
 	'Start Date Time' => 'Fecha Hora Inicio',
 	'End Date Time' => 'Fecha Hora Fin',
-	'Time Start' => 'Hora Inicio',
-	'End Time' => 'Hora Fin',
+	'Time Start' => 'Hora Inicio (System Time)',
+	'End Time' => 'Hora Fin (System Time)',
+	'End Date' => 'Fecha Fin',
 	'Due Date' => 'Fecha Vencimiento',
 	'Related To' => 'Relacionado con',
 	'Related with' => 'Evento Relacionado',
@@ -61,6 +62,7 @@ $mod_strings = Array(
 	'LBL_YEAR'=>'Año',
 	'LBL_UNTIL' => 'Hasta',
 	'LBL_SET_DATE'=>'Establecer Fecha',
+	'LBL_SET_DATE_TIME'=>'Establecer Fecha y Hora',
 	'LBL_SM_MON' => 'Lun',
 	'LBL_SM_TUE' => 'Mar',
 	'LBL_SM_WED' => 'Mie',

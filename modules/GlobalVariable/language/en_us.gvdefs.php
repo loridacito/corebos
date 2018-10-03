@@ -25,7 +25,6 @@
 	'values' => 'list of possible values',
 	'definition' => 'explanation and purpose',
 ),
-
  *************************************************************************************************/
 $GlobalVariableDefinitonsHeader = array(
 	'valuetype' => 'Value Type',
@@ -69,6 +68,13 @@ $GlobalVariableDefinitons = array(
 	'category' => 'Debug',
 	'values' => '0 | 1',
 	'definition' => 'If set to 1 the SQL query being launched to retrieve records in a List View will be shown on screen.',
+),
+'Debug_RelatedList_Query' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Boolean',
+	'category' => 'Debug',
+	'values' => '0 | 1',
+	'definition' => 'If the value of the variable is 1 it will be written on screen, the record query for the related list.',
 ),
 'Debug_Popup_Query' => array(
 	'status' => 'Implemented',
@@ -210,6 +216,13 @@ $GlobalVariableDefinitons = array(
 	'values' => '0 | 1',
 	'definition' => 'Completely disables or enables SOAP Customer Portal access.',
 ),
+'SOAP_Outlook_Enabled' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Boolean',
+	'category' => 'Webservice',
+	'values' => '0 | 1',
+	'definition' => 'Completely disables or enables SOAP Outlook access.',
+),
 'Application_Default_Action' => array(
 	'status' => 'Implemented',
 	'valuetype' => 'String',
@@ -272,6 +285,13 @@ $GlobalVariableDefinitons = array(
 	'category' => 'Performance',
 	'values' => '0 | 1',
 	'definition' => 'Compute list view record count while loading listview. The default is 0',
+),
+'Application_ListView_Sum_Currency' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Boolean',
+	'category' => 'Performance',
+	'values' => '0 | 1',
+	'definition' => 'Show total sum of currency columns. The default is 1',
 ),
 'Application_DetailView_Record_Navigation' => array(
 	'status' => 'Implemented',
@@ -349,6 +369,13 @@ $GlobalVariableDefinitons = array(
 	'category' => 'Application',
 	'values' => '',
 	'definition' => 'URL for customer portal (Example: http://your_support_domain.tld/portal). Used mostly for email template communications.',
+),
+'Application_Customer_Portal_BeingUsed' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'String',
+	'category' => 'Application',
+	'values' => 'vtigercrmportal | coreboscp',
+	'definition' => 'Indicate the customer portal connected to this coreBOS so we can adapt outputs accordingly. Used mostly for email template communications.',
 ),
 'Debug_Calculate_Response_Time' => array(
 	'status' => 'Implemented',
@@ -462,12 +489,40 @@ $GlobalVariableDefinitons = array(
 	'values' => '0 | 1',
 	'definition' => 'Show Documents list view as separate folders or as a normal list view. Default is 1 = Folder view.',
 ),
+'Document_CreateSelectContactFolder' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Boolean',
+	'category' => 'Application',
+	'values' => '0 | 1',
+	'definition' => 'When creating a document from a Contact, create a new folder with the name of the contact and select it by default.',
+),
+'Document_CreateSelectAccountFolder' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Boolean',
+	'category' => 'Application',
+	'values' => '0 | 1',
+	'definition' => 'When creating a document from an Account, create a new folder with the name of the account and select it by default.',
+),
+'Document_CreateSelectAccountFolderForContact' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Boolean',
+	'category' => 'Application',
+	'values' => '0 | 1',
+	'definition' => 'When creating a document from a Contact, create a new folder with the name of the related account and select it by default. This variable overrides Document_CreateSelectContactFolder',
+),
 'Inventory_Tax_Type_Default' => array(
 	'status' => 'Implemented',
 	'valuetype' => 'String',
 	'category' => 'Application',
 	'values' => 'individual | group',
 	'definition' => 'Establish the tax mode on inventory modules to Individual line or Group tax',
+),
+'Inventory_Show_ShippingHandlingCharges' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Boolean',
+	'category' => 'Application',
+	'values' => '0 | 1',
+	'definition' => 'Show or hide Shipping and Handling charges',
 ),
 'Application_Global_Search_Active' => array(
 	'status' => 'Implementada',
@@ -489,6 +544,13 @@ $GlobalVariableDefinitons = array(
 	'category' => 'Application',
 	'values' => 'CSV list of modules',
 	'definition' => 'Comma Separated List of modules that the global search will put first in the result list.',
+),
+'Application_Global_Search_Autocomplete_Limit' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Integer',
+	'category' => 'Application',
+	'values' => '',
+	'definition' => 'Maximum númber of results to be shown in autocomplete global search.',
 ),
 'Product_Copy_Bundle_OnDuplicate' => array(
 	'status' => 'Implemented',
@@ -580,6 +642,13 @@ $GlobalVariableDefinitons = array(
 	'category' => 'Mobile Functionality',
 	'values' => 'Calendar | HelpDesk | Contacts ...',
 	'definition' => 'Set the default module to show when accessing the Mobile module.',
+),
+'Mobile_UI_Enabled' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'String',
+	'category' => 'Mobile Functionality',
+	'values' => '0 | 1',
+	'definition' => 'Completely disables or enables Mobile UI access.',
 ),
 'Application_Storage_Directory' => array(
 	'status' => 'Implemented',
@@ -777,6 +846,13 @@ $GlobalVariableDefinitons = array(
 	'values' => '',
 	'definition' => 'Maximum number of days in the past to search for events that will appear in the reminder pop-up. The default is 7 days.',
 ),
+'Calendar_Show_Only_My_Events' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Integer',
+	'category' => 'Application',
+	'values' => '0 | 1',
+	'definition' => 'Show only the events assign to me, shared with me and in which I am invited.',
+),
 'CronTasks_cronWatcher_mailto' => array(
 	'status' => 'Implemented',
 	'valuetype' => 'CSV emails',
@@ -847,6 +923,13 @@ $GlobalVariableDefinitons = array(
 	'values' => 'false | true',
 	'definition' => 'If set to the string "true", the Opportunity section will be selected when converting a Lead. By default, the section is not selected.',
 ),
+'Lead_Convert_ContactSelected' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'String',
+	'category' => 'Application',
+	'values' => 'false | true',
+	'definition' => 'If set to the string "true", the Contact section will be selected when converting a Lead. By default, the section is selected.',
+),
 'Product_Show_Subproducts_Popup' => array(
 	'status' => 'Implemented',
 	'valuetype' => 'Boolean',
@@ -901,7 +984,7 @@ $GlobalVariableDefinitons = array(
 	'valuetype' => 'String',
 	'category' => 'Application',
 	'values' => 'Country Name',
-	'definition' => 'For GeoDistance calculation workflow functions, this variable sets the default country to use if none is given. Useful when the company has a local area of influence.',
+	'definition' => 'For GeoDistance calculation workflow functions, this variable sets the default country coce to use if none is given. Useful when the company has a local area of influence.Example:gb,us,fr,es',
 ),
 'Workflow_GeoDistance_ServerIP' => array(
 	'status' => 'Implemented',
@@ -1008,6 +1091,13 @@ $GlobalVariableDefinitons = array(
 	'values' => '',
 	'definition' => 'The maximum number of records that will be synchronized in one batch when sending or receiving information from Google Contacts. The default value is 200 records.',
 ),
+'CustomerPortal_PDF_Modules'  => array(
+	'status' => 'Implemented',
+	'valuetype' => 'CSV Modules',
+	'category' => 'Integration',
+	'values' => 'Comma separated values of modules capable of sending PDF data via Webservice',
+	'definition' => 'When using the getpdfdata webservice call, this variable indicates which Modules can generate PDF data.',
+),
 'CustomerPortal_PDF'  => array(
 	'status' => 'Implemented',
 	'valuetype' => 'String',
@@ -1029,37 +1119,99 @@ $GlobalVariableDefinitons = array(
 	'values' => 'ID or name of template to use',
 	'definition' => 'When the CustomerPortal_PDF variable is set to PDFMaker or GenDoc, this variable indicates which template should be used to generate Sales Order PDF. If it is empty the first template found will be used.',
 ),
-'CustomerPortal_PDFTemplate_Invoice'  => array(
+'CustomerPortal_PDFTemplate_Invoice' => array(
 	'status' => 'Implemented',
 	'valuetype' => 'String',
 	'category' => 'Integration',
 	'values' => 'ID or name of template to use',
 	'definition' => 'When the CustomerPortal_PDF variable is set to PDFMaker or GenDoc, this variable indicates which template should be used to generate Invoice PDF. If it is empty the first template found will be used.',
 ),
-'CustomerPortal_PDFTemplate_PurchaseOrder'  => array(
+'CustomerPortal_PDFTemplate_PurchaseOrder' => array(
 	'status' => 'Implemented',
 	'valuetype' => 'String',
 	'category' => 'Integration',
 	'values' => 'ID or name of template to use',
 	'definition' => 'When the CustomerPortal_PDF variable is set to PDFMaker or GenDoc, this variable indicates which template should be used to generate Purchase Order PDF. If it is empty the first template found will be used.',
 ),
-'Application_Permit_Assign_Up'  => array(
+'Application_Permit_Assign_Up' => array(
 	'status' => 'Implemented',
 	'valuetype' => 'Boolean',
 	'category' => 'Application',
 	'values' => '0 | 1',
 	'definition' => 'In modules with private sharing privileges, permit assigning the record to any active user in the application.',
 ),
-'Application_Permit_Assign_SameRole'  => array(
+'Application_Permit_Assign_SameRole' => array(
 	'status' => 'Implemented',
 	'valuetype' => 'Boolean',
 	'category' => 'Application',
 	'values' => '0 | 1',
 	'definition' => 'In modules with private sharing privileges, permit assigning the record to any active user in the application with the same role as the current user.',
 ),
+'Application_Permit_Assign_AllGroups' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Boolean',
+	'category' => 'Application',
+	'values' => '0 | 1',
+	'definition' => 'In modules with private sharing privileges, permit assigning the record to any defined group in the application.',
+),
+'MailManager_Show_SentTo_Links' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Boolean',
+	'category' => 'Application',
+	'values' => '0 | 1',
+	'definition' => 'MailManager shows, by default, on the left panel a set of links to filter emails related to Accounts, Contacts and some other modules. Setting this variable to 0 will hide those quick actions.',
+),
+'Calendar_Show_WeekNumber' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Boolean',
+	'category' => 'Module Functionality',
+	'values' => '0 | 1',
+	'definition' => 'When Calendar_Show_WeekNumber is active, the week numbers will appear on the Calendar.',
+),
+'Report_HeaderOnXLS' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Boolean',
+	'category' => 'Application',
+	'values' => '0 | 1',
+	'definition' => 'When Report_HeaderOnXLS is active, the name of the report will appear as the header in the XLS file.',
+),
+'Report_HeaderOnPDF' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Boolean',
+	'category' => 'Application',
+	'values' => '0 | 1',
+	'definition' => 'When Report_HeaderOnPDF is active, the name of the report will appear as the header in the PDF file.',
+),
+'RelatedList_Activity_DefaultStatusFilter' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'String',
+	'category' => 'Application',
+	'values' => 'Any valid Activity Status',
+	'definition' => 'Initial Activity filter on Related List. Default is "all".',
+),
+'Zero_Bounce_API_KEY' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'String',
+	'category' => 'Application',
+	'values' => 'Any valid Zero Bounce API KEY',
+	'definition' => 'The valid Zero Bounce API KEY',
+),
+'PBXManager_SearchOnlyOnTheseFields' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'String',
+	'category' => 'Application',
+	'values' => 'list of field names',
+	'definition' => 'List of fields to search in when we get a call from Asterisk. The first result found will be returned.',
+),
+'GenDoc_CopyLabelToClipboard' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Boolean',
+	'category' => 'Extension',
+	'values' => '0|1',
+	'definition' => 'Make the copy links in Detail View copy GenDoc labels instead of field values. By default deactivated.',
+),
 );
 
-foreach (glob('modules/GlobalVariable/language/en_us.gvdefs.*.php',GLOB_BRACE) as $tcode) {
-	include($tcode);
+foreach (glob('modules/GlobalVariable/language/en_us.gvdefs.*.php', GLOB_BRACE) as $tcode) {
+	include $tcode;
 }
-

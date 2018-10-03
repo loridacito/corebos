@@ -52,15 +52,18 @@
 	</td>
 
 	<td width="100%" align="center">
-		<div id="vtbusy_info" style="display: none;">
-			<img src="{'status.gif'|@vtiger_imageurl:$THEME}" border="0" />
+		<span id="vtbusy_info" style="display:none;" valign="bottom">
+		<div role="status" class="slds-spinner slds-spinner_brand slds-spinner_x-small" style="position:relative; top:6px;">
+			<div class="slds-spinner__dot-a"></div>
+			<div class="slds-spinner__dot-b"></div>
 		</div>
+		</span>
 	</td>
 </tr>
 </table>
 
 {*<!--button related stuff -->*}
-<form name="Homestuff" id="formStuff" style="display: inline;">
+<form name="Homestuff" id="formStuff" style="display: inline;" method="post">
 	<input type="hidden" name="action" value="homestuff">
 	<input type="hidden" name="module" value="Home">
 	<div id='addWidgetDropDown' style='background-color: #fff; display:none;' onmouseover='fnShowWindow()' onmouseout='fnRemoveWindow()'>

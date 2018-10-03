@@ -1,20 +1,14 @@
 <?php
-/*******************************************************************************
- * The contents of this file are subject to the following licences:
- * - SugarCRM Public License Version 1.1.2 http://www.sugarcrm.com/SPL
- * - vtiger CRM Public License Version 1.0 
- * You may not use this file except in compliance with the License
- * Software distributed under the License is distributed on an  "AS IS" basis,
- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for
- * the specific language governing rights and limitations under the License.
- * The Original Code is: SugarCRM Open Source
- * The Initial Developer of the Original Code is SugarCRM, Inc.
- * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.;
+/*+********************************************************************************
+ * The contents of this file are subject to the vtiger CRM Public License Version 1.0
+ * ("License"); You may not use this file except in compliance with the License
+ * The Original Code is:  vtiger CRM Open Source
+ * The Initial Developer of the Original Code is vtiger.
  * Portions created by vtiger are Copyright (C) vtiger.
  * Portions created by Vicus are Copyright (C) Vicus.
  * All Rights Reserved.
  * Feel free to use / redistribute these languagefiles under the VPL 1.0.
- * This translations is based on earlier work of: 
+ * This translations is based on earlier work of:
  * - IT-Online.nl <www.it-online.nl>
  * - Weltevree.org <www.Weltevree.org>
  ********************************************************************************/
@@ -32,6 +26,7 @@ $app_strings = array(
 	'LBL_SHOW' => 'Bekijk :',
 	'today' => 'Vandaag',
 	'all' => 'Alle',
+	'Generate Document'=>'Merge Document',
 	'LBL_UPCOMING_EVENTS' => 'Aankomende Afspraken',
 	'LBL_PENDING_EVENTS' => 'Wachtende Afspraken',
 	'NTC_WELCOME_MESSAGE' => 'Welkom bij coreBOS!',
@@ -49,6 +44,7 @@ $app_strings = array(
 	'LBL_CONVERTSO_BUTTON_TITLE' => 'Maak een verkooporder',
 	'LBL_CONVERTINVOICE_BUTTON_TITLE' => 'Maak een factuur',
 	'LBL_EDIT_BUTTON' => 'Bewerk',
+	'LBL_COPY_BUTTON'=>'Kopieren',
 	'LBL_DUPLICATE_BUTTON_TITLE' => 'Dupliceer [Alt+U]',
 	'LBL_DUPLICATE_BUTTON' => 'Dupliceer',
 	'LBL_TABCUSTOMISE_BUTTON_TITLE' => 'Wijzig [Alt+C]',
@@ -145,6 +141,8 @@ $app_strings = array(
 	'LNK_HELP' => 'Help',
 	'LNK_ABOUT' => 'Over',
 	'LNK_OUTLOOK' => './include/images/outlook_download.gif',
+	'LBL_ACTIVATE' => 'Activeren',
+	'LBL_DEACTIVATE' => 'deactiveren',
 	'SINGLE_Accounts' => 'Account',
 	'SINGLE_Contacts' => 'Contact',
 	'SINGLE_Campaigns' => 'Campagne',
@@ -168,7 +166,6 @@ $app_strings = array(
 	'SINGLE_Rss' => 'Rss',
 	'SINGLE_Reports' => 'Rapport',
 	'SINGLE_Portal' => 'Portaal',
-	'SINGLE_Webmails' => 'Webmail',
 	'SINGLE_Users' => 'Gebruiker',
 	'NEW' => 'Nieuw',
 	'NTC_REQUIRED' => 'Verplicht veld',
@@ -186,6 +183,7 @@ $app_strings = array(
 	'ERR_CREATING_FIELDS' => 'Fout bij het invullen van de extra velden: ',
 	'ERR_MISSING_REQUIRED_FIELDS' => 'Niet alle velden zijn ingevuld:',
 	'ERR_INVALID_EMAIL_ADDRESS' => 'fout e-mailadres.',
+	'ERR_INVALID_SECONDARY_EMAIL_ADDRESS' => 'not a valid secondary email address.',
 	'ERR_INVALID_YAHOO_EMAIL_ADDRESS' => 'Geen geldig Secundair e-mailadres !!',
 	'ERR_INVALID_DATE_FORMAT' => 'De datum moet van het formaat:  dd-mm-jjjj zijn',
 	'ERR_INVALID_MONTH' => 'Een geldige maand aub.',
@@ -212,10 +210,13 @@ $app_strings = array(
 	'Photo2Document' => 'Photo to Document',
 	'Snap Photo' => 'Snap Photo',
 	'Clear Photo' => 'Clear Photo',
+	'DocumentCreatedRelated' => 'Document added and related',
 	'Export' => 'Exporteer',
 	'Import' => 'Importeer',
 	'Merge' => 'Samenvoegen',
 	'ConvertLead' => 'Converteer lead',
+	'Is Converted From Lead' => 'Is gemaakt vanuit lead',
+	'Converted From Lead' => 'Gemaakt vanuit lead',
 	'LBL_SHOW_RESULTS' => 'Laat resultaten zien in',
 	'LBL_TOTAL_RECORDS_FOUND' => 'Totaal gevonden :',
 	'LBL_SEARCH_RESULTS_FOR' => ' -- Zoek resultaten voor ',
@@ -416,7 +417,6 @@ $app_strings = array(
 	'Vendors' => 'Leveranciers',
 	'Rss' => 'RSS',
 	'Portal' => 'Onze Websites',
-	'Webmails' => 'Webmail',
 	'Attachments' => 'Bijlagen',
 	'Activity History' => 'Geschiedenis activiteiten',
 	'Ticket History' => 'Geschiedenis Ticket',
@@ -486,10 +486,10 @@ $app_strings = array(
 	'Quote No' => 'Offertenummer',
 	'Sales Order' => 'Verkooporder',
 	'COMBO_QUOTES' => 'Offerte',
-	'End Date' => 'Einddatum',
-	'End Date & Time' => 'Einddatum & tijd',
+	'End Date' => 'Einddatum (System Date)',
+	'End Date & Time' => 'Einddatum & tijd (System Date)',
 	'Start Date' => 'Startdatum',
-	'Start Date & Time' => 'Startdatum & tijd',
+	'Start Date & Time' => 'Startdatum & tijd (System Date)',
 	'Recurring Type' => 'Herhaaltype',
 	'SalesOrders' => 'Verkooporder',
 	'LBL_QUOTE_NAME' => 'Offerte naam',
@@ -614,7 +614,7 @@ $app_strings = array(
 	'LBL_TOOLS' => 'Gereedschappen',
 	'LBL_DISCOUNT' => 'Korting',
 	'LBL_TOTAL_AFTER_DISCOUNT' => 'Totaal na korting',
-	'LBL_NET_TOTAL' => 'Subtotaal',
+	'LBL_NET_TOTAL' => 'Netto Totaal (bGD)',
 	'LBL_SHIPPING_AND_HANDLING_CHARGES' => 'Handling en Verzendtoeslag',
 	'LBL_TAX_FOR_SHIPPING_AND_HANDLING' => 'BTW over Handling en Verzendtoeslag',
 	'LBL_FINISH' => 'Afmaken',
@@ -634,6 +634,24 @@ $app_strings = array(
 	'LBL_TOTAL_TAX_AMOUNT' => 'Totaal belastingbedrag',
 	'LBL_FINAL_DISCOUNT_AMOUNT' => 'Kortingbedrag',
 	'LBL_SHIPPING_AND_HANDLING_CHARGE' => 'Handling en Verzendtoeslag',
+	'Gross Total' => 'Gross Total',
+	'Line Discount' => 'Line Discount',
+	'Global Discount' => 'Global Discount',
+	'Total Discount' => 'Total Discount',
+	'Net Total (aGD)' => 'Net Total (aGD)',
+	'Net Total (bGD)' => 'Net Total (bGD)',
+	'bGD' => 'before Global Discount',
+	'aGD' => 'after Global Discount',
+	'SH Total' => 'SH Total',
+	'SH Tax' => 'SH Tax',
+	'Final Adjustment' => 'Final Adjustment',
+	'Grand Total' => 'Grand Total',
+	'Total Tax' => 'Total Tax',
+	'Total Tax Retention' => 'Total Tax Retention',
+	'LBL_Invoice_FINANCIALINFO' => 'Financial Information',
+	'LBL_PurchaseOrder_FINANCIALINFO' => 'Financial Information',
+	'LBL_Quotes_FINANCIALINFO' => 'Financial Information',
+	'LBL_SalesOrder_FINANCIALINFO' => 'Financial Information',
 	'LBL_GO_BACK' => 'Ga terug',
 	'LBL_RECORD_DELETE' => 'Deze informatie is verwijderd.',
 	'Part Number' => 'Partnummer',
@@ -654,9 +672,9 @@ $app_strings = array(
 	'LBL_RENAME_PROFILE' => 'Nieuw profiel',
 	'LBL_PROFILE_NAME' => 'Profielnaam',
 	'LBL_START_DATE' => 'Startdatum',
-	'LBL_START_DATE_TIME' => 'Startdatum & tijd',
-	'LBL_END_DATE' => 'Einddatum',
-	'LBL_END_DATE_TIME' => 'Einddatum & tijd',
+	'LBL_START_DATE_TIME' => 'Startdatum & tijd (System Date)',
+	'LBL_END_DATE' => 'Einddatum (System Date)',
+	'LBL_END_DATE_TIME' => 'Einddatum & tijd (System Date)',
 	'LBL_CREATE_MERGE_TEMPLATE' => 'Nieuw samenvoegsjabloon ',
 	'LBL_IMG_FORMATS' => '(Alleen jpg, gif, bmp en png afbeeldingen)',
 	'group' => 'Groep',
@@ -785,6 +803,7 @@ $app_strings = array(
 	'DUPLICATE_MAPPING_POTENTIAL' => 'Dubbele mapping voor Verkoopkansen!!',
 	'ERROR_WHILE_EDITING' => 'Foutmelding tijdens bewerken',
 	'PLEASE_ENTER_TAG' => 'Gaarne een tag ingeven',
+	'PLEASE_SELECT_LINE_ITEM' => 'Please select a line item',
 	'PLEASE_SELECT_PRODUCT' => 'a.u.b. een Product weergeven',
 	'DUPLICATE_ENTRIES_FOUND' => ' Dubbele gegevens gevonden voor waarde \\\'',
 	'ROLE_SHOULDHAVE_INFO' => 'Een rol moet minstens een profiel hebben',
@@ -858,6 +877,8 @@ $app_strings = array(
 	'FOLDER_NAME_ALLOW_20CHARS' => 'Mapnaam is beperkt tot 20 characters',
 	'SPECIAL_CHARS_NOT_ALLOWED' => 'Speciale characters niet geoorloofd. Probeer opnieuw...',
 	'LBL_SIGN_IN' => 'Inloggen',
+	'StartSession' => 'Start Session',
+	'CapsLockActive' => 'CapsLock is active',
 	'LBL_ROOT' => 'Root',
 	'LBL_FIRST' => 'Eerste',
 	'LBL_LAST' => 'Laatste',
@@ -1086,6 +1107,7 @@ $app_strings = array(
 	'LBL_DUP_PERMISSION' => 'U heeft geen permissie om te wissen ',
 	'recordid' => 'Record',
 	'Entity Type' => 'Entiteit Type',
+	'RecordDuplicated'=>'Record has been duplicated. This is the new record.',
 	'LBL_GMAIL' => 'Gmail',
 	'LBL_BOOKMARKLET' => 'Bookmarklet',
 	'PRIVATE_FILTER' => 'Prive',
@@ -1148,7 +1170,7 @@ $app_strings = array(
 	'Shipping & Handling Charges' => 'Transport  & Handling toeslagen',
 	'Shipping & Handling Tax:' => 'Transport  & Handling Belasting:',
 	'Quantity' => 'Hoeveelheid',
-	'Net Total' => 'Netto Totaal',
+	'Net Total' => 'Netto Totaal (bGD)',
 	'Send SMS' => 'Stuur SMS',
 	'Add Payment' => 'Add Payment',
 	'LBL_CRM_SETTINGS' => 'CRM instellingen',
@@ -1161,6 +1183,14 @@ $app_strings = array(
 	'Subscribe' => 'Subscribe',
 	'View History' => 'View History',
 	'SYNCH_NOW' => 'Sync Now',
+	'Updated' => 'Updated',
+	'id' => 'id',
+	'data' => 'data',
+	'record' => 'Record',
+	'saved' => 'saved',
+	'notsaved' => 'notsaved',
+	'processcomplete' => 'Process Complete',
+	'typetosearch_prodser' => 'Type om producten of diensten te zoeken',
 );
 
 // Translation for currency names

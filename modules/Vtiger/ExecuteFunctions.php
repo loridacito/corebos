@@ -70,22 +70,27 @@ switch ($functiontocall) {
 		}
 		$ret = getReferenceAutocomplete($term, $op, $searchinmodule, $limit, $current_user);
 		break;
+	case 'getProductServiceAutocomplete':
+		include_once 'include/Webservices/CustomerPortalWS.php';
+		$limit =  isset($_REQUEST['limit']) ? $_REQUEST['limit'] : 5;
+		$ret = getProductServiceAutocomplete($_REQUEST['term'], array(), $limit);
+		break;
 	case 'getFieldValuesFromRecord':
 		$ret = array();
 		$crmid = vtlib_purify($_REQUEST['getFieldValuesFrom']);
 		if (!empty($crmid)) {
 			$module = getSalesEntityType($crmid);
 			$fields = vtlib_purify($_REQUEST['getTheseFields']);
-			$fields = explode(',',$fields);
+			$fields = explode(',', $fields);
 			$queryGenerator = new QueryGenerator($module, $current_user);
 			$queryGenerator->setFields($fields);
-			$queryGenerator->addCondition('id',$crmid,'e');
+			$queryGenerator->addCondition('id', $crmid, 'e');
 			$query = $queryGenerator->getQuery();
-			$queryres=$adb->pquery($query,array());
+			$queryres=$adb->pquery($query, array());
 			if ($adb->num_rows($queryres)>0) {
 				$col=0;
 				foreach ($fields as $field) {
-					$ret[$field]=$adb->query_result($queryres,0,$col++);
+					$ret[$field]=$adb->query_result($queryres, 0, $col++);
 				}
 			}
 		}
@@ -120,7 +125,7 @@ switch ($functiontocall) {
 		if (Validations::ValidationsExist($valmod)) {
 			$validation = Validations::processAllValidationsFor($valmod);
 			if ($validation!==true) {
-				echo Validations::formatValidationErrors($validation,$valmod);
+				echo Validations::formatValidationErrors($validation, $valmod);
 				die();
 			}
 		}
@@ -143,7 +148,7 @@ switch ($functiontocall) {
 		$newssid = vtlib_purify($_REQUEST['newtabssid']);
 		$oldssid = vtlib_purify($_REQUEST['oldtabssid']);
 		foreach ($_SESSION as $key => $value) {
-			if (strpos($key, $oldssid) !== false and strpos($key, $oldssid.'__prev') === false) {
+			if (strpos($key, $oldssid) !== false && strpos($key, $oldssid.'__prev') === false) {
 				$newkey = str_replace($oldssid, $newssid, $key);
 				coreBOS_Session::set($newkey, $value);
 				coreBOS_Session::set($key, (isset($_SESSION[$key.'__prev']) ? $_SESSION[$key.'__prev'] : ''));
@@ -154,13 +159,29 @@ switch ($functiontocall) {
 	case 'getEmailTemplateVariables':
 		$module = vtlib_purify($_REQUEST['module_from']);
 		$allOptions=getEmailTemplateVariables(array($module,'Accounts'));
-		$ret = array_merge($allOptions[0],$allOptions[1],$allOptions[2]);
+		$ret = array_merge($allOptions[0], $allOptions[1], $allOptions[2]);
+		break;
+	case 'downloadfile':
+		include_once 'include/utils/downloadfile.php';
+		die();
+		break;
+	case 'delImage':
+		include_once 'include/utils/DelImage.php';
+		$id = vtlib_purify($_REQUEST['recordid']);
+		$id = preg_replace('/[^0-9]/', '', $id);
+		if (isset($_REQUEST['attachmodule']) && $_REQUEST["attachmodule"]=='Emails') {
+			DelAttachment($id);
+		} else {
+			DelImage($id);
+		}
+		echo 'SUCCESS';
+		die();
 		break;
 	case 'saveAttachment':
 		include_once 'modules/Settings/MailScanner/core/MailAttachmentMIME.php';
 		include_once 'modules/MailManager/src/controllers/UploadController.php';
 		$allowedFileExtension = array();
-		$upload_maxsize = GlobalVariable::getVariable('Application_Upload_MaxSize',3000000,'Emails');
+		$upload_maxsize = GlobalVariable::getVariable('Application_Upload_MaxSize', 3000000, 'Emails');
 		$upload = new MailManager_Uploader($allowedFileExtension, $upload_maxsize);
 		if ($upload) {
 			$filePath = decideFilePath();
@@ -177,20 +198,77 @@ switch ($functiontocall) {
 			$currencyField = new CurrencyField($value);
 			$decimals = vtlib_purify($_REQUEST['decimals']);
 			$currencyField->initialize($current_user);
-			$currencyField->setNumberofDecimals(min($decimals,$currencyField->getCurrencyDecimalPlaces()));
-			$ret = $currencyField->getDisplayValue(null,true,true);
+			$currencyField->setNumberofDecimals(min($decimals, $currencyField->getCurrencyDecimalPlaces()));
+			$ret = $currencyField->getDisplayValue(null, true, true);
 		}
 		break;
 	case 'getGloalSearch':
+	case 'getGlobalSearch':
 		include_once 'include/Webservices/CustomerPortalWS.php';
-		$data = json_decode(file_get_contents('php://input'), TRUE);
+		$data = json_decode($_REQUEST['data'], true);
 		$searchin = vtlib_purify($data['searchin']);
-		$limit = isset($data['maxResults']) ? vtlib_purify($data['maxResults']) : '';
+		$limit = isset($data['maxresults']) ? vtlib_purify($data['maxresults']) : '';
 		$term = vtlib_purify($data['term']);
 		$retvals = getGlobalSearch($term, $searchin, $limit, $current_user);
 		$ret = array();
-		foreach ($retvals as $value) {
-			$ret[] = array('crmid'=>$value['crmid'],'crmmodule'=>$value['crmmodule'],'query_string'=>$value['query_string'])+ $value['crmfields'];
+		foreach ($retvals['data'] as $value) {
+			$ret[] = array(
+				'crmid' => $value['crmid'],
+				'crmmodule' => $value['crmmodule'],
+				'query_string' => $value['query_string'],
+				'total' => $retvals['total']
+			) + $value['crmfields'];
+		}
+		break;
+	case 'getRelatedListInfo':
+		$sql = 'SELECT rl.tabid,rl.related_tabid,rl.label,tab.name as name, tabrel.name as relname
+			FROM vtiger_relatedlists rl
+			LEFT JOIN vtiger_tab tab ON rl.tabid=tab.tabid
+			LEFT JOIN vtiger_tab tabrel ON rl.related_tabid=tabrel.tabid
+			WHERE relation_id=?';
+		$res = $adb->pquery($sql, array($_REQUEST['relation_id']));
+		$ret = array();
+		if ($adb->num_rows($res) > 0) {
+			$tabid = $adb->query_result($res, 0, 'tabid');
+			$tabidrel = $adb->query_result($res, 0, 'related_tabid');
+			$label = $adb->query_result($res, 0, 'label');
+			$mod = $adb->query_result($res, 0, 'name');
+			$modrel = $adb->query_result($res, 0, 'relname');
+			$ret = array(
+				'tabid'=>$tabid,
+				'tabidrel'=>$tabidrel,
+				'label'=>$label,
+				'module'=>$mod,
+				'modulerel'=>$modrel,
+			);
+		}
+		break;
+	case 'getSetting':
+		$skey = vtlib_purify($_REQUEST['skey']);
+		if (!empty($_REQUEST['default'])) {
+			$default = vtlib_purify($_REQUEST['default']);
+			$ret = coreBOS_Settings::getSetting($skey, $default);
+		} else {
+			$ret = coreBOS_Settings::getSetting($skey, null);
+		}
+		break;
+	case 'setSetting':
+		$skey = vtlib_purify($_REQUEST['skey']);
+		$svalue = vtlib_purify($_REQUEST['svalue']);
+		$ret = coreBOS_Settings::setSetting($skey, $svalue);
+		break;
+	case 'delSetting':
+		$skey = vtlib_purify($_REQUEST['skey']);
+		$ret = coreBOS_Settings::delSetting($skey);
+		break;
+	case 'getTranslatedStrings':
+		global $currentModule;
+		$i18nm = empty($_REQUEST['i18nmodule']) ? $currentModule : vtlib_purify($_REQUEST['i18nmodule']);
+		$tkeys = vtlib_purify($_REQUEST['tkeys']);
+		$tkeys = explode(';', $tkeys);
+		$ret = array();
+		foreach ($tkeys as $tr) {
+			$ret[$tr] = getTranslatedString($tr, $i18nm);
 		}
 		break;
 	case 'ismoduleactive':

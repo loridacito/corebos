@@ -1,21 +1,16 @@
 <?php
-/*********************************************************************************
- * The contents of this file are subject to the SugarCRM Public License Version 1.1.2
- * ("License"); You may not use this file except in compliance with the
- * License. You may obtain a copy of the License at http://www.sugarcrm.com/SPL
- * Software distributed under the License is distributed on an  "AS IS"  basis,
- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for
- * the specific language governing rights and limitations under the License.
- * The Original Code is:  SugarCRM Open Source
- * The Initial Developer of the Original Code is SugarCRM, Inc.
- * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.;
+/*+**********************************************************************************
+ * The contents of this file are subject to the vtiger CRM Public License Version 1.0
+ * ("License"); You may not use this file except in compliance with the License
+ * The Original Code is:  vtiger CRM Open Source
+ * The Initial Developer of the Original Code is vtiger.
+ * Portions created by vtiger are Copyright (C) vtiger.
  * All Rights Reserved.
- ********************************************************************************/
-require_once('modules/Users/Users.php');
-require_once('modules/Vtiger/layout_utils.php');
-require_once('include/logging.php');
+ ************************************************************************************/
+require_once 'modules/Users/Users.php';
+require_once 'include/logging.php';
 
-global $theme, $app_strings, $mod_strings;
+global $theme, $app_strings, $mod_strings, $default_charset;
 
 $badpassword = $mod_strings['PASSWORD REQUIREMENTS'].'<br>----------------------------------------<br>';
 $badpassword.= $mod_strings['REQUIRED'].':<br>~ ';
@@ -25,8 +20,13 @@ $badpassword.= $mod_strings['Min. 1 uppercase'].'<br>~ ';
 $badpassword.= $mod_strings['Min. 1 lowercase'].'<br>~ ';
 $badpassword.= $mod_strings['Min. 1 number'].'<br>~ ';
 $badpassword.= $mod_strings['Min. 1 special character'].'<br>';
-insert_popup_header($theme);
 ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset='.$default_charset.'">
+<title><?php echo $app_strings['LBL_BROWSER_TITLE']; ?></title>
+<style type="text/css">@import url("themes/'.$theme.'/style.css"); </style>
+</HEAD><BODY leftMargin="5" topMargin="5" MARGINHEIGHT="0" MARGINWIDTH="0">
 <link REL="SHORTCUT ICON" HREF="themes/images/blank.gif">
 <script type='text/javascript' src="include/js/general.js"></script>
 <script type='text/javascript' src="include/js/PasswordManagement.js"></script>
@@ -56,7 +56,7 @@ function set_password(form) {
 	}
 	//Check Password
 	var passwordOK = corebos_Password.passwordChecker(form.new_password.value);
-	if(passwordOK) { //Complex Password is ok
+	if (passwordOK) { //Complex Password is ok
 		if (trim(form.new_password.value) == trim(form.confirm_new_password.value)) {
 			if (form.is_admin.value == 1) window.opener.document.DetailView.old_password.value = form.old_password.value;
 			window.opener.document.DetailView.new_password.value = form.new_password.value;
@@ -67,8 +67,7 @@ function set_password(form) {
 			window.opener.document.DetailView.action.value = 'Save';
 			window.opener.document.DetailView.submit();
 			return true;
-		}
-		else {
+		} else {
 			errmsg.innerHTML = "<?php echo $mod_strings['ERR_REENTER_PASSWORDS']; ?>";
 			errmsg.style.display = 'block';
 			return false;
@@ -86,7 +85,8 @@ function set_password(form) {
 <tr>
 	<td class="detailedViewHeader" colspan="3"><b><?php echo $mod_strings['LBL_CHANGE_PASSWORD']; ?></b></td>
 </tr>
-<?php if (!is_admin($current_user)) {
+<?php
+if (!is_admin($current_user)) {
 	echo "<tr>";
 	echo "<td width='20%' class='dvtCellLabel' align='right'><b> ".$mod_strings['LBL_OLD_PASSWORD']."</b></td>\n";
 	echo "<td width='50%' class='dvtCellInfo'><input name='old_password' type='password' tabindex='1' size='15'></td>\n";
@@ -121,11 +121,13 @@ function set_password(form) {
 </form>
 <script>
 <?php
-	if (is_admin($current_user)) {
-		echo 'document.ChangePassword.new_password.focus();';
-	} else {
-		echo 'document.ChangePassword.old_password.focus();';
-	}
+if (is_admin($current_user)) {
+	echo 'document.ChangePassword.new_password.focus();';
+} else {
+	echo 'document.ChangePassword.old_password.focus();';
+}
 ?>
 </script>
 <br>
+</BODY>
+</HTML>

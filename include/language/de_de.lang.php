@@ -1,14 +1,10 @@
 <?php
-/*********************************************************************************
- * The contents of this file are subject to the SugarCRM Public License Version 1.1.2
- * ("License"); You may not use this file except in compliance with the
- * License. You may obtain a copy of the License at http://www.sugarcrm.com/SPL
- * Software distributed under the License is distributed on an  "AS IS"  basis,
- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for
- * the specific language governing rights and limitations under the License.
- * The Original Code is:  SugarCRM Open Source
- * The Initial Developer of the Original Code is SugarCRM, Inc.
- * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.;
+/*+********************************************************************************
+ * The contents of this file are subject to the vtiger CRM Public License Version 1.0
+ * ("License"); You may not use this file except in compliance with the License
+ * The Original Code is:  vtiger CRM Open Source
+ * The Initial Developer of the Original Code is vtiger.
+ * Portions created by vtiger are Copyright (C) vtiger.
  * All Rights Reserved.
  ********************************************************************************/
 $app_strings = array(
@@ -24,6 +20,7 @@ $app_strings = array(
 'LBL_SHOW'=>'zeige:',
 'today'=>"heutige",
 'all'=>'Alle',
+'Generate Document'=>'Merge Document',
 'LBL_UPCOMING_EVENTS'=>'aktuelle Aktivitäten',
 'LBL_PENDING_EVENTS'=>'überfällige Aktivitäten',
 'NTC_WELCOME_MESSAGE'=>"Willkommen!",
@@ -38,9 +35,11 @@ $app_strings = array(
 'LBL_SEND_MAIL_BUTTON'=>'E-Mail senden',
 'LBL_SAVE_BUTTON_TITLE'=>'Speichern [Alt+S]',
 'LBL_EDIT_BUTTON_TITLE'=>'Bearbeiten [Alt+E]',
+'LBL_RECALCULATE_BUTTON_TITLE' => 'Neu berechnen [Alt+R]',
 'LBL_CONVERTSO_BUTTON_TITLE'=>'erstelle Kundenbestellung',
 'LBL_CONVERTINVOICE_BUTTON_TITLE'=>'Rechnung erstellen',
 'LBL_EDIT_BUTTON'=>'Bearbeiten',
+'LBL_COPY_BUTTON'=>'Kopieren',
 'LBL_DUPLICATE_BUTTON_TITLE'=>'Kopieren [Alt+U]',
 'LBL_DUPLICATE_BUTTON'=>'Kopieren',
 'LBL_TABCUSTOMISE_BUTTON_TITLE'=>'Anpassen [Alt+C]',
@@ -75,6 +74,7 @@ $app_strings = array(
 'LBL_CONVERTINVOICE_BUTTON_KEY'=>'I',
 'LBL_DUPLICATE_BUTTON_KEY'=>'U',
 'LBL_DELETE_BUTTON_KEY'=>'D',
+'LBL_RECALCULATE_BUTTON_KEY' => 'R',
 'LBL_NEW_BUTTON_KEY'=>'N',
 'LBL_CHANGE_BUTTON_KEY'=>'G',
 'LBL_CANCEL_BUTTON_KEY'=>'X',
@@ -87,6 +87,7 @@ $app_strings = array(
 'LBL_CONVERTINVOICE_BUTTON_LABEL'=>'erstelle Rechnung',
 'LBL_DUPLICATE_BUTTON_LABEL'=>'Kopieren',
 'LBL_DELETE_BUTTON_LABEL'=>'Löschen',
+'LBL_RECALCULATE_BUTTON' => 'Neu berechnen',
 'LBL_NEW_BUTTON_LABEL'=>'Neu',
 'LBL_CHANGE_BUTTON_LABEL'=>'Wähle',
 'LBL_CANCEL_BUTTON_LABEL'=>'Abbrechen',
@@ -136,6 +137,8 @@ $app_strings = array(
 'LNK_HELP'=>'Hilfe',
 'LNK_ABOUT'=>'Über',
 'LNK_OUTLOOK'=>'./include/images/outlook_download.gif',
+'LBL_ACTIVATE' => 'Aktivieren',
+'LBL_DEACTIVATE' => 'Deaktivieren',
 'SINGLE_Accounts' => 'Organisation',
 'SINGLE_Contacts' => 'Person',
 'SINGLE_Campaigns' => 'Kampagne',
@@ -158,7 +161,6 @@ $app_strings = array(
 'SINGLE_Rss' => 'RSS',
 'SINGLE_Reports' => 'Bericht',
 'SINGLE_Portal' => 'Portal',
-'SINGLE_Webmails' => 'Webmail',
 'SINGLE_Users' => 'Nutzer',
 'NEW' => 'erstelle',
 'NTC_REQUIRED' => 'Pflichtfelder',
@@ -176,6 +178,7 @@ $app_strings = array(
 'ERR_CREATING_FIELDS'=>'Fehler beim Ausfüllen der zusätzlichen Felder: ',
 'ERR_MISSING_REQUIRED_FIELDS'=>'Fehlende Pflichtangaben:',
 'ERR_INVALID_EMAIL_ADDRESS'=>'ist keine gültige E-Mail Adresse.',
+'ERR_INVALID_SECONDARY_EMAIL_ADDRESS' => 'not a valid secondary email address.',
 'ERR_INVALID_YAHOO_EMAIL_ADDRESS' => 'ist keine gültige Yahoo E-Mail Adresse.',
 'ERR_INVALID_DATE_FORMAT'=>'Das Datumsformat muss lauten: jj-mm-tt',
 'ERR_INVALID_MONTH'=>'Bitte einen gültigen Monat eingeben.',
@@ -202,10 +205,13 @@ $app_strings = array(
 'Photo2Document' => 'Photo to Document',
 'Snap Photo' => 'Snap Photo',
 'Clear Photo' => 'Clear Photo',
+'DocumentCreatedRelated' => 'Document added and related',
 'Export'=>'Export',
 'Import'=>'Import',
 'Merge'=>'Zusammenführen',
 'ConvertLead'=>'Lead umwandeln',
+'Is Converted From Lead' => 'Wird konvertiert, aus Blei',
+'Converted From Lead' => 'Konvertiert aus Blei',
 'LBL_SHOW_RESULTS'=>'zeige Ergebnisse in',
 'LBL_TOTAL_RECORDS_FOUND'=>'Gesamtanzahl gefunden :',
 'LBL_SEARCH_RESULTS_FOR'=>' -- Suchergebnisse für ',
@@ -348,7 +354,6 @@ $app_strings = array(
 'Sales Stage'=>'Verkaufsstufe',
 'Amount'=>'Betrag',
 'Expected Close'=>'Abschluss',
-'Contact Name'=>'Person',
 'Related to'=>'bezogen auf',
 'File'=>'Datei',
 'Last Modified'=>'letzte Änderung',
@@ -384,7 +389,6 @@ $app_strings = array(
 'Tasks'=>'Aufgaben',
 'Todo'=>'Aufgabe',
 'Call'=>'Anruf',
-'Meeting'=>'Meeting',
 'PriceBook'=>'Preisliste',
 'Calendar'=>'Aufgaben',
 'Home'=>'Home',
@@ -396,8 +400,6 @@ $app_strings = array(
 'Vendors'=>'Lieferanten',
 'Rss'=>'RSS',
 'Portal'=>'Meine Seiten',
-'Webmails'=>'Webmail',
-'Attachments'=>'Anhänge',
 'Ticket History'=>'Ticket-Historie',
 'Purchase Order'=>'Einkaufsbestellung',
 'Sales Stage History'=>'Verkaufshistorie',
@@ -417,7 +419,6 @@ $app_strings = array(
 'Tools'=>'Werkzeuge',
 'Settings'=>'Einstellungen',
 'LBL_INFORMATION'=>'Information',
-'LBL_MORE'=>'mehr',
 'LBL_BASIC'=>'Stammdaten',
 'LBL_CREATING'=>'erstelle',
 'LBL_DUPLICATING' => 'Klonen von',
@@ -430,7 +431,6 @@ $app_strings = array(
 'Product'=>'Produkt',
 'Activity'=>'Aktivität',
 'Event'=>'Ereignis',
-'Task'=>'Aufgabe',
 'Quote'=>'Angebot',
 'Ticket'=>'Ticket',
 'Campaign'=>'Kampagne',
@@ -445,12 +445,10 @@ $app_strings = array(
 'LBL_RSS_FEEDS'=>'RSS Feeds',
 'LBL_ADD_RSS_FEEDS'=>'Neuer RSS Feed',
 'LNK_NEW_FAQ'=>'Neue Wissensbasis',
-'Vendor Name'=>'Lieferant',
 'LNK_WEARE'=>'Wir',
 'LBL_DISCUSS'=>'diskutiere mit anderen Benutzern',
 'Quote Stage'=>'Angebotsstufe',
 'Potential Name'=>'Verkaufspotential',
-'Total'=>'Total',
 'First Name'=>'Vorname',
 'Last Name'=>'Nachname',
 'User Name'=>'Benutzername',
@@ -463,12 +461,11 @@ $app_strings = array(
 'Invoice No'=>'Rechnungsnr.',
 'Sales Order'=>'Kundenbestellung',
 'COMBO_QUOTES'=>'Angebote',
-'End Date'=>'Ende',
-'End Date & Time' => 'Termin endet',
+'End Date'=>'Ende (System Date)',
+'End Date & Time' => 'Termin endet (System Date)',
 'Start Date'=>'Start',
-'Start Date & Time' => 'Termin beginnt',
+'Start Date & Time' => 'Termin beginnt (System Date)',
 'Recurring Type'=> 'Wiederholungsart',
-'SalesOrder'=> 'Verkäufe',
 'LBL_QUOTE_NAME'=>'Angebotsname',
 'LBL_NEW_QUOTE_BUTTON_TITLE'=>'Neues Angebot [Alt+Q]',
 'LBL_NEW_QUOTE_BUTTON_KEY'=>'Q',
@@ -586,7 +583,7 @@ $app_strings = array(
 'LBL_TOOLS'=>'Werkzeuge',
 'LBL_DISCOUNT'=>'Rabatt',
 'LBL_TOTAL_AFTER_DISCOUNT'=>'Total nach Rabatt',
-'LBL_NET_TOTAL'=>'Summe',
+'LBL_NET_TOTAL'=>'Netto gesamt (bGD)',
 'LBL_SHIPPING_AND_HANDLING_CHARGES'=>'Versandkosten',
 'LBL_TAX_FOR_SHIPPING_AND_HANDLING'=>'Versandkosten Mwst.',
 'LBL_FINISH'=>'Fertigstellen',
@@ -606,6 +603,24 @@ $app_strings = array(
 'LBL_TOTAL_TAX_AMOUNT'=>'Total Mwst.',
 'LBL_FINAL_DISCOUNT_AMOUNT'=>'Abschlussrabatt',
 'LBL_SHIPPING_AND_HANDLING_CHARGE'=>'Versandkosten',
+'Gross Total' => 'Gross Total',
+'Line Discount' => 'Line Discount',
+'Global Discount' => 'Global Discount',
+'Total Discount' => 'Total Discount',
+'Net Total (aGD)' => 'Net Total (aGD)',
+'Net Total (bGD)' => 'Net Total (bGD)',
+'bGD' => 'before Global Discount',
+'aGD' => 'after Global Discount',
+'SH Total' => 'SH Total',
+'SH Tax' => 'SH Tax',
+'Final Adjustment' => 'Final Adjustment',
+'Grand Total' => 'Grand Total',
+'Total Tax' => 'Total Tax',
+'Total Tax Retention' => 'Total Tax Retention',
+'LBL_Invoice_FINANCIALINFO' => 'Financial Information',
+'LBL_PurchaseOrder_FINANCIALINFO' => 'Financial Information',
+'LBL_Quotes_FINANCIALINFO' => 'Financial Information',
+'LBL_SalesOrder_FINANCIALINFO' => 'Financial Information',
 'LBL_GO_BACK'=>'Zurück',
 'LBL_RECORD_DELETE'=>'Die Daten, die Sie versuchen anzusehen, wurden bereits gelöscht.',
 'Part Number'=>'Produktcode',
@@ -626,9 +641,9 @@ $app_strings = array(
 'LBL_RENAME_PROFILE'=>'Profil umbenennen',
 'LBL_PROFILE_NAME'=>'Profilname',
 'LBL_START_DATE'=>'Startdatum',
-'LBL_START_DATE_TIME'=>'Termin beginnt',
-'LBL_END_DATE'=>'Endedatum',
-'LBL_END_DATE_TIME'=>'Termin endet',
+'LBL_START_DATE_TIME'=>'Termin beginnt (System Date)',
+'LBL_END_DATE'=>'Endedatum (System Date)',
+'LBL_END_DATE_TIME'=>'Termin endet (System Date)',
 'LBL_CREATE_MERGE_TEMPLATE'=>'Textvorlage erstellen ',
 'LBL_IMG_FORMATS'=>'(Nur jpg, gif, bmp und png Bilder)',
 
@@ -850,6 +865,8 @@ $app_strings = array(
 'SPECIAL_CHARS_NOT_ALLOWED' => 'Sonderzeichen sind hier nicht zulässig.',
 //Added for title for SignIn Image.
 'LBL_SIGN_IN'=>'Login',
+'StartSession' => 'Start Session',
+'CapsLockActive' => 'CapsLock is active',
 
 //Added for title of Root Image
 'LBL_ROOT'=>'Root',
@@ -860,7 +877,6 @@ $app_strings = array(
 'LBL_CONTACT_FIRST_NAME'=>'Person - Vorname',
 'Office Phone'=>'Tel. direkt',
 'Sender'=>'Sender',
-'Website'=>'Webseite',
 'Activity Type'=>'Aktivitätentyp',
 'Created Time'=>'erstellt',
 'Modified Time'=>'geändert',
@@ -929,7 +945,6 @@ $app_strings = array(
 'Planned'=>'geplant',
 'Held'=>'durchgeführt',
 'Not Held'=>'nicht durchgeführt',
-'Call'=>'Anruf',
 'Meeting'=>'Meeting',
 'Task'=>'Aufgabe',
 'Completed'=>'erledigt',
@@ -937,7 +952,6 @@ $app_strings = array(
 'Not Started'=>'Nicht begonnen',
 'In Progress'=>'In Bearbeitung',
 'Pending Input'=>'erwarte Zuarbeit',
-//Export Records <-----ENDS
 
 'Trouble Tickets'=>'Trouble Tickets',
 'LBL_NOT_ACCESSIBLE'=>'Ansicht gesperrt',
@@ -973,11 +987,8 @@ $app_strings = array(
 'RELATED_PARENT'=>'bezogen auf übergeordnetes Modul',
 //Added for select parent role button in picklist
 'LBL_SELECT_PARENTROLE' => 'Die übergeordnete Rolle selektieren',
-//Added for migration check
 'LBL_MIGRATION_CHECK'=>'Versionen in der Datenbank und der Datei sind gleich. Es kann keine Migration gemacht werden.',
-//Added for ticket #4595
 'LBL_RECORD_NOT_FOUND'=>'Der Eintrag wurde nicht gefunden',
-//Added for i18n issue (report 06/12/2007)
 'Reorder Level' => 'Reorder Level',
 'Handler' => 'Verantwortlich',
 'Qty In Demand' => 'Minimalmenge',
@@ -1039,10 +1050,7 @@ $app_strings = array(
 'Discount'=>'Rabatt',
 'LBL_ADD_BUTTON' => 'erstelle',
 
-// Added after 5.0.4 GA
-
-//Added to Fix i18N issue in Email Template
-'LBL_GENERAL_FIELDS'=>'Allgemeine Felder', 
+'LBL_GENERAL_FIELDS'=>'Allgemeine Felder',
 //For Users fields
 'HomePhone'=>'Telefon privat',
 'Signature'=>'Signatur',
@@ -1064,7 +1072,6 @@ $app_strings = array(
 'MSG_AUTO_GEN_ON_SAVE'=>'AUTOMATISCHE NUMMERVERGABE BEIM SPEICHERN',
 
 //For Duplicate merging feature
-'LBL_MERGE' => 'Merge',
 'LBL_MERGE_BUTTON_TITLE' => 'Zusammenführen',
 'LBL_SAVE_MERGE_BUTTON_TITLE' => 'Duplikate suchen',
 'LBL_SELECT_MERGECRITERIA_HEADER' => 'Auswahl der Kriterien',
@@ -1153,7 +1160,7 @@ $app_strings = array(
 // For Privacy Policy
 'LNK_PRIVACY_POLICY'=>'Datenschutz',
 'LBL_MOVE_BLOCK_FIELD' => 'Felder verschieben',
- 
+
 //added for find duplicate
 'LBL_DUPLICATE_DATA_IN'=>'Duplikate ',
 'LBL_MERGE_SELECT'=>'ausgewählte Zusammenführen',
@@ -1164,6 +1171,7 @@ $app_strings = array(
 'LBL_DUP_PERMISSION' => 'Sie haben keine Löscherlaubnis für ',
 'recordid' => 'Datensatznr.',
 'Entity Type' => 'Typ',
+'RecordDuplicated'=>'Record has been duplicated. This is the new record.',
 
 // gmailbookmarklet customization
 'LBL_GMAIL'=>'Gmail',
@@ -1176,7 +1184,7 @@ $app_strings = array(
 'PUBLIC_FILTER'=>'öffentlich',
 
 // Account Hierarchy
-'LBL_ACCOUNT_HIERARCHY' => 'Unternehmenshierarchie', 
+'LBL_ACCOUNT_HIERARCHY' => 'Unternehmenshierarchie',
 
 //Prod Bundles
 'LBL_NO_SUB_PRODUCTS'=>'kein Bündel',
@@ -1201,7 +1209,7 @@ $app_strings = array(
 
 // Unified Search extended support
 'LBL_SELECT_MODULES_FOR_SEARCH' => 'Modulauswahl zur Suche',
-'LBL_SELECT_ALL' => 'Alle auswählen', 
+'LBL_SELECT_ALL' => 'Alle auswählen',
 'LBL_UNSELECT_ALL' => 'Alle abwählen',
 'LBL_FIELD_FOR_COMPARISION' => 'Feld zum Vergleich',
 'LBL_DONE' => ' erledigt ',
@@ -1213,7 +1221,7 @@ $app_strings = array(
 // For note link on the detailview
 'LBL_ADD_NOTE'=>'erstelle Notiz',
 
-// For Layout Editor 
+// For Layout Editor
 'LBL_UNHIDE_FIELDS'=>'Felder anzeigen',
 
 // For Mass Edit
@@ -1265,7 +1273,7 @@ $app_strings = array(
 'Shipping & Handling Charges' => 'Versandkosten und Bearbeitungsgebühren',
 'Shipping & Handling Tax:' => 'Steuern auf Versandkosten und Bearbeitungsgebühren:',
 'Quantity' => 'Menge',
-'Net Total' => 'Netto gesamt',
+'Net Total' => 'Netto gesamt (bGD)',
 'Send SMS' => 'Sende SMS',
 'Add Payment' => 'Add Payment',
 
@@ -1288,6 +1296,14 @@ $app_strings = array(
 'Subscribe' => 'Subscribe',
 'View History' => 'View History',
 'SYNCH_NOW' => 'Sync Now',
+'Updated' => 'Updated',
+'id' => 'id',
+'data' => 'data',
+'record' => 'Record',
+'saved' => 'saved',
+'notsaved' => 'notsaved',
+'processcomplete' => 'Process Complete',
+'typetosearch_prodser' => 'Type to search products or services',
 );
 
 // Translation for currency names
@@ -1409,7 +1425,6 @@ $app_currency_strings = array(
 	'Venezuela, Bolivares Fuertes' => 'Venezuela, Bolivares Fuertes',
 	'Vietnam, Dong' 		=> 'Vietnam, Dong',
 	'Zimbabwe Dollars' 		=> 'Zimbabwe Dollars',
-	'China, Yuan Renminbi' 	=> 'China, Yuan Renminbi',
 	'Afghanistan, Afghanis' => 'Afghanistan, Afghanis',
 	'Cambodia, Riels' 		=> 'Cambodia, Riels',
 	'China, Yuan Renminbi' => 'China, Yuan Renminbi',

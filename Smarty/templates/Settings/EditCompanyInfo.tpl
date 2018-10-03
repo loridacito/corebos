@@ -15,7 +15,7 @@
         <td valign="top"><img src="{'showPanelTopLeft.gif'|@vtiger_imageurl:$THEME}"></td>
         <td class="showPanelBg" style="padding: 10px;" valign="top" width="100%">
 <br>
-	<form action="index.php?module=Settings&action=add2db" method="post" name="index" enctype="multipart/form-data" onsubmit="VtigerJS_DialogBox.block();">
+	<form action="index.php?module=Settings&action=SettingsAjax&file=add2db" method="post" name="index" enctype="multipart/form-data" onsubmit="VtigerJS_DialogBox.block();">
  	<input type="hidden" name="return_module" value="Settings">
  	<input type="hidden" name="parenttab" value="Settings">
     	<input type="hidden" name="return_action" value="OrganizationConfig">
@@ -76,17 +76,17 @@
                           </tr>
                            <tr valign="top">
                             <td class="small cellLabel"><strong>{$MOD.LBL_FRONT_LOGO}</strong></td>
-			    {if $FORNTLOGONAME neq ''}
-                            <td class="small cellText" style="background-image: url(test/logo/{$FORNTLOGONAME}); background-position: left; background-repeat: no-repeat;" width="48" height="48" border="0" >
+			    {if $FRONTLOGONAME neq ''}
+                            <td class="small cellText" style="background-image: url(test/logo/{$FRONTLOGONAME}); background-position: left; background-repeat: no-repeat;" width="48" height="48" border="0" >
 			    {else}
                             <td class="small cellText" style="background-image: url(include/images/noimage.gif); background-position: left; background-repeat: no-repeat;" width="48" height="48" border="0" >
 			     {/if}
 				<br><br><br><br>
                              {$MOD.LBL_SELECT_LOGO}
 				<INPUT TYPE="HIDDEN" NAME="MAX_FILE_SIZE" VALUE="800000">
-		                <INPUT TYPE="HIDDEN" NAME="PREV_FRONT_FILE" VALUE="{$FORNTLOGONAME}">
-                                <input type="file" name="binFrontFile" class="small" value="{$FORNTLOGONAME}" onchange="validateFilename(this);">[{$FORNTLOGONAME}]
-                                <input type="hidden" name="binFrontFile_hidden" value="{$FORNTLOGONAME}" />
+		                <INPUT TYPE="HIDDEN" NAME="PREV_FRONT_FILE" VALUE="{$FRONTLOGONAME}">
+                                <input type="file" name="binFrontFile" class="small" value="{$FRONTLOGONAME}" onchange="validateFilename(this);">[{$FRONTLOGONAME}]
+                                <input type="hidden" name="binFrontFile_hidden" value="{$FRONTLOGONAME}" />
 			      </td>
                           </tr>
                           <tr valign="top">

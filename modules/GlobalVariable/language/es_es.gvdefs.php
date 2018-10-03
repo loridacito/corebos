@@ -25,7 +25,6 @@
 	'values' => 'list of possible values',
 	'definition' => 'explanation and purpose',
 ),
-
  *************************************************************************************************/
 $GlobalVariableDefinitonsHeader = array(
 	'valuetype' => 'Tipo de Valor',
@@ -69,6 +68,13 @@ $GlobalVariableDefinitons = array(
 	'category' => 'Depuración',
 	'values' => '0 | 1',
 	'definition' => 'Si el valor de la variable es 1 se escribirá en pantalla, la consulta de obtención de registros para la vista de lista.',
+),
+'Debug_RelatedList_Query' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Booleano',
+	'category' => 'Depuración',
+	'values' => '0 | 1',
+	'definition' => 'Si el valor de la variable es 1 se escribirá en pantalla, la consulta de obtención de registros para la lista relacionada.',
 ),
 'Debug_Popup_Query' => array(
 	'status' => 'Implementada',
@@ -210,6 +216,13 @@ $GlobalVariableDefinitons = array(
 	'values' => '0 | 1',
 	'definition' => 'Habilita o Deshabilita el acceso al servicio de SOAP del portal del cliente.',
 ),
+'SOAP_Outlook_Enabled' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Booleano',
+	'category' => 'Webservice',
+	'values' => '0 | 1',
+	'definition' => 'Habilita o Deshabilita el acceso al servicio de SOAP de Outlook.',
+),
 'Application_Default_Action' => array(
 	'status' => 'Implementada',
 	'valuetype' => 'Texto',
@@ -272,6 +285,13 @@ $GlobalVariableDefinitons = array(
 	'category' => 'Rendimiento',
 	'values' => '0 | 1',
 	'definition' => 'Calcular el total de registros en la vista de lista. El valor por defecto es 0',
+),
+'Application_ListView_Sum_Currency' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Booleano',
+	'category' => 'Rendimiento',
+	'values' => '0 | 1',
+	'definition' => 'Mostrar la suma total de columnas de tipo moneda. El valor por defecto es 1',
 ),
 'Application_DetailView_Record_Navigation' => array(
 	'status' => 'Implementada',
@@ -349,6 +369,13 @@ $GlobalVariableDefinitons = array(
 	'category' => 'Aplicación',
 	'values' => '',
 	'definition' => 'URL del portal del cliente (Ejemplo: http://your_support_domain.tld/portal). Utilizado principalmente en las plantillas de correo.',
+),
+'Application_Customer_Portal_BeingUsed' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Texto',
+	'category' => 'Aplicación',
+	'values' => 'vtigercrmportal | coreboscp',
+	'definition' => 'Indica el portal de ciente conectado a este coreBOS para que podamos adaptar algunas salidas correctamente. Utilizado principalmente en las plantillas de correo.',
 ),
 'Debug_Calculate_Response_Time' => array(
 	'status' => 'Implementada',
@@ -462,12 +489,40 @@ $GlobalVariableDefinitons = array(
 	'values' => '0 | 1',
 	'definition' => 'Mostrar la vista de lista de documentos como carpetas separadas o como una lista normal. El valor predeterminado es 1 = Vista de carpeta.',
 ),
+'Document_CreateSelectContactFolder' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Booleano',
+	'category' => 'Aplicación',
+	'values' => '0 | 1',
+	'definition' => 'Al crear un documento desde un contacto, crea una nueva carpeta con el nombre del contacto y la selecciona de manera predeterminada.',
+),
+'Document_CreateSelectAccountFolder' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Booleano',
+	'category' => 'Aplicación',
+	'values' => '0 | 1',
+	'definition' => 'Al crear un documento desde una cuenta, crea una nueva carpeta con el nombre de la cuenta y la selecciona de manera predeterminada.',
+),
+'Document_CreateSelectAccountFolderForContact' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Booleano',
+	'category' => 'Aplicación',
+	'values' => '0 | 1',
+	'definition' => 'Al crear un documento desde un contacto, crea una nueva carpeta con el nombre de la cuenta relacionada y la selecciona de manera predeterminada. Esta variable tiene prioridad sobre Document_CreateSelectContactFolder',
+),
 'Inventory_Tax_Type_Default' => array(
 	'status' => 'Implementada',
 	'valuetype' => 'Texto',
 	'category' => 'Aplicación',
 	'values' => 'individual | group',
 	'definition' => 'Establecer el modo de impuesto en módulos de inventario a línea individual o grupo de impuestos',
+),
+'Inventory_Show_ShippingHandlingCharges' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Booleano',
+	'category' => 'Aplicación',
+	'values' => '0 | 1',
+	'definition' => 'Muestra o esconde la sección de cargos de Manipulación y Transporte.',
 ),
 'Application_Global_Search_Active' => array(
 	'status' => 'Implementada',
@@ -489,6 +544,13 @@ $GlobalVariableDefinitons = array(
 	'category' => 'Aplicación',
 	'values' => 'CSV lista de módulos',
 	'definition' => 'Lista de módulos separados por coma que la búsqueda global pondrá primero en la lista de resultados.',
+),
+'Application_Global_Search_Autocomplete_Limit' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Entero',
+	'category' => 'Aplicación',
+	'values' => '',
+	'definition' => 'Número máximo de resultados a mostrar en la pantalla de búsqueda global autocompletada.',
 ),
 'Product_Copy_Bundle_OnDuplicate' => array(
 	'status' => 'Implementada',
@@ -580,6 +642,13 @@ $GlobalVariableDefinitons = array(
 	'category' => 'Funccionalidad module Mobile',
 	'values' => 'Calendar | HelpDesk | Contacts ...',
 	'definition' => 'Establecer el módulo por defecto a mostrar al entrar al módulo de Mobile.',
+),
+'Mobile_UI_Enabled' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Texto',
+	'category' => 'Funccionalidad module Mobile',
+	'values' => '0 | 1',
+	'definition' => 'Habilita o Deshabilita el acceso al interfaz Móvil.',
 ),
 'Application_Storage_Directory' => array(
 	'status' => 'Implementada',
@@ -777,6 +846,13 @@ $GlobalVariableDefinitons = array(
 	'values' => '',
 	'definition' => 'Número máximo de días en el pasado para buscar eventos que aparecerán en la ventana emergente del recordatorio. El valor predeterminado es 7 días.',
 ),
+'Calendar_Show_Only_My_Events' => array(
+	'status' => 'Implemented',
+	'valuetype' => 'Integer',
+	'category' => 'Application',
+	'values' => '0 | 1',
+	'definition' => 'Mostrar solo los eventos asignados a mi, compartidos conmigo y en los que esté invitado.',
+),
 'CronTasks_cronWatcher_mailto' => array(
 	'status' => 'Implementada',
 	'valuetype' => 'Emails CSV',
@@ -847,6 +923,13 @@ $GlobalVariableDefinitons = array(
 	'values' => 'false | true',
 	'definition' => 'Si se establece a "true", la sección de la Oportunidad se seleccionará al convertir un PreContacto. De forma predeterminada, la sección no está activada.',
 ),
+'Lead_Convert_ContactSelected' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Texto',
+	'category' => 'Aplicación',
+	'values' => 'false | true',
+	'definition' => 'Si se establece a "true", la sección del Contacto se seleccionará al convertir un PreContacto. De forma predeterminada, la sección está activada.',
+),
 'Product_Show_Subproducts_Popup' => array(
 	'status' => 'Implementada',
 	'valuetype' => 'Booleano',
@@ -900,8 +983,8 @@ $GlobalVariableDefinitons = array(
 	'status' => 'Implementada',
 	'valuetype' => 'Texto',
 	'category' => 'Aplicación',
-	'values' => 'Country Name',
-	'definition' => 'Para las funciones de flujo de trabajo de cálculo de GeoDistance, esta variable establece el país predeterminado para usar si no se da ninguno. Útil cuando la empresa tiene un área local de influencia.',
+	'values' => 'Country Code',
+	'definition' => 'Para las funciones de flujo de trabajo de cálculo de GeoDistance, esta variable establece el código de país predeterminado para usar si no se da ninguno. Útil cuando la empresa tiene un área local de influencia. Ejemplo: es,fr,gb,de,...',
 ),
 'Workflow_GeoDistance_ServerIP' => array(
 	'status' => 'Implementada',
@@ -1008,6 +1091,13 @@ $GlobalVariableDefinitons = array(
 	'values' => '',
 	'definition' => 'Número máximo de registros que se sincronizarán en un lote al enviar o recibir información de Contactos de Google. El valor predeterminado es 200 registros.',
 ),
+'CustomerPortal_PDF_Modules'  => array(
+	'status' => 'Implementada',
+	'valuetype' => 'CSV Modules',
+	'category' => 'Integración',
+	'values' => 'Lista separada por comas de módulos que pueden enviar datos PDF vía Webservice.',
+	'definition' => 'Cuando se utiliza la llamada webservice getpdfdata, esta variable indica qué Módulos pueden generar PDF.',
+),
 'CustomerPortal_PDF'  => array(
 	'status' => 'Implementada',
 	'valuetype' => 'Texto',
@@ -1019,47 +1109,109 @@ $GlobalVariableDefinitons = array(
 	'status' => 'Implementada',
 	'valuetype' => 'Texto',
 	'category' => 'Integración',
-	'values' => 'ID or name of template to use',
+	'values' => 'ID o nombre de la plantilla a utilizar',
 	'definition' => 'Cuando la variable CustomerPortal_PDF se establece en PDFMaker o GenDoc, esta variable indica qué plantilla se debe utilizar para generar el PDF de presupuestos. Si está vacía, se utilizará la primera plantilla encontrada.',
 ),
 'CustomerPortal_PDFTemplate_SalesOrder'  => array(
 	'status' => 'Implementada',
 	'valuetype' => 'Texto',
 	'category' => 'Integración',
-	'values' => 'ID or name of template to use',
+	'values' => 'ID o nombre de la plantilla a utilizar',
 	'definition' => 'Cuando la variable CustomerPortal_PDF se establece en PDFMaker o GenDoc, esta variable indica qué plantilla se debe utilizar para generar el PDF de ordenes de venta. Si está vacía, se utilizará la primera plantilla encontrada.',
 ),
-'CustomerPortal_PDFTemplate_Invoice'  => array(
+'CustomerPortal_PDFTemplate_Invoice' => array(
 	'status' => 'Implementada',
 	'valuetype' => 'Texto',
 	'category' => 'Integración',
-	'values' => 'ID or name of template to use',
+	'values' => 'ID o nombre de la plantilla a utilizar',
 	'definition' => 'Cuando la variable CustomerPortal_PDF se establece en PDFMaker o GenDoc, esta variable indica qué plantilla se debe utilizar para generar el PDF de facturas. Si está vacía, se utilizará la primera plantilla encontrada.',
 ),
-'CustomerPortal_PDFTemplate_PurchaseOrder'  => array(
+'CustomerPortal_PDFTemplate_PurchaseOrder' => array(
 	'status' => 'Implementada',
 	'valuetype' => 'Texto',
 	'category' => 'Integración',
-	'values' => 'ID or name of template to use',
+	'values' => 'ID o nombre de la plantilla a utilizar',
 	'definition' => 'Cuando la variable CustomerPortal_PDF se establece en PDFMaker o GenDoc, esta variable indica qué plantilla se debe utilizar para generar el PDF de ordenes de compra. Si está vacía, se utilizará la primera plantilla encontrada.',
 ),
-'Application_Permit_Assign_Up'  => array(
+'Application_Permit_Assign_Up' => array(
 	'status' => 'Implementada',
 	'valuetype' => 'Booleano',
 	'category' => 'Aplicación',
 	'values' => '0 | 1',
 	'definition' => 'En módulos con privilegios de compartición privados, permite asignar el registro a cualquier usuario activo de la aplicación.',
 ),
-'Application_Permit_Assign_SameRole'  => array(
+'Application_Permit_Assign_SameRole' => array(
 	'status' => 'Implementada',
 	'valuetype' => 'Booleano',
 	'category' => 'Aplicación',
 	'values' => '0 | 1',
 	'definition' => 'En módulos con privilegios de compartición privados, permite asignar el registro a cualquier usuario activo de la aplicación con el mismo rol que el usuario actual.',
 ),
+'Application_Permit_Assign_AllGroups' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Booleano',
+	'category' => 'Aplicación',
+	'values' => '0 | 1',
+	'definition' => 'En módulos con privilegios de compartición privados, permite asignar el registro a cualquier grupo definido en la aplicación.',
+),
+'MailManager_Show_SentTo_Links' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Booleano',
+	'category' => 'Aplicación',
+	'values' => '0 | 1',
+	'definition' => 'MailManager muestra, de manera predeterminada, en el panel izquierdo un conjunto de enlaces para filtrar los correos electrónicos relacionados con Cuentas, Contactos y algunos otros módulos. Establecer esta variable a 0 ocultará esas acciones rápidas.',
+),
+'Calendar_Show_WeekNumber' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Booleano',
+	'category' => 'Aplicación',
+	'values' => '0 | 1',
+	'definition' => 'Cuando la variable está activa se mostrará el número de semana en el calendario.',
+),
+'Report_HeaderOnXLS' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Booleano',
+	'category' => 'Aplicación',
+	'values' => '0 | 1',
+	'definition' => 'Cuando Report_HeaderOnXLS está activo, el nombre del informe aparecerá como el encabezado en el archivo XLS.',
+),
+'Report_HeaderOnPDF' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Booleano',
+	'category' => 'Aplicación',
+	'values' => '0 | 1',
+	'definition' => 'Cuando Report_HeaderOnPDF está activo, el nombre del informe aparecerá como el encabezado en el archivo PDF.',
+),
+'RelatedList_Activity_DefaultStatusFilter' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Cadena',
+	'category' => 'Aplicación',
+	'values' => 'Valor válido de la lista de estados de Actividad',
+	'definition' => 'Filtro inicial de Actividades en la lista relacionada. Por defecto muestra "todos".',
+),
+'Zero_Bounce_API_KEY' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Cadena',
+	'category' => 'Aplicación',
+	'values' => 'Cualquier Clave API válida de Zero Bounce',
+	'definition' => 'Una clave válida para el API de Zero Bounce para poder validar cuentas de correo.',
+),
+'PBXManager_SearchOnlyOnTheseFields' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Cadena',
+	'category' => 'Aplicación',
+	'values' => 'nombres de campos',
+	'definition' => 'Lista de campos en los que buscar al recibir una llamada de Asterisk. Se devolverá el primer resultado encontrado.',
+),
+'GenDoc_CopyLabelToClipboard' => array(
+	'status' => 'Implementada',
+	'valuetype' => 'Booleano',
+	'category' => 'Extensión',
+	'values' => '0|1',
+	'definition' => 'Haz que los enlaces de Copiar generen las etiquetas GenDoc en vez de los valores de los campos. Por defecto desactivado.',
+),
 );
 
-foreach (glob('modules/GlobalVariable/language/es_es.gvdefs.*.php',GLOB_BRACE) as $tcode) {
-	include($tcode);
+foreach (glob('modules/GlobalVariable/language/es_es.gvdefs.*.php', GLOB_BRACE) as $tcode) {
+	include $tcode;
 }
-
